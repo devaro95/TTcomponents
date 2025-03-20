@@ -11,8 +11,8 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.theming.TTTheme
 import com.ttcomponents.app.R
-import com.components.styles.Primary
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -20,7 +20,7 @@ fun TTBodyText18(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -38,7 +38,7 @@ fun TTBodyText(
     text: String,
     minLines: Int = 1,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Clip,
 ) {
@@ -60,7 +60,7 @@ fun TTBodyText14(
     text: String,
     minLines: Int = 1,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
     maxLines: Int = Int.MAX_VALUE,
     overflow: TextOverflow = TextOverflow.Clip,
 ) {

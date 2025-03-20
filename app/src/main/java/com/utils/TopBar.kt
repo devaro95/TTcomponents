@@ -1,35 +1,47 @@
 package com.utils
 
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.Background
-import com.components.styles.Primary
-import com.components.text.TTHeaderText16
+import com.components.text.TTBodyText18
+import com.ttcomponents.app.R
 import com.vro.compose.states.VROTopBarBaseState.VROTopBarState
 import com.vro.constants.EMPTY_STRING
 
+//TODO Update Color
+fun topBarState(
+    title: String = EMPTY_STRING,
+    actionButton: @Composable (RowScope.() -> Unit)? = null,
+    background: Color = Color(0xFFF3F2ED),
+) = VROTopBarState(
+    title = { TTBodyText18(text = title) },
+    background = background,
+    actionButton = actionButton
+)
+
+//TODO Update Color
 fun topBarBackState(
     navigateBack: () -> Unit,
-    title: @Composable String = EMPTY_STRING,
-    background: Color = Background,
+    title: String = EMPTY_STRING,
+    actionButton: @Composable (RowScope.() -> Unit)? = null,
+    background: Color = Color(0xFFF3F2ED),
 ) = VROTopBarState(
-    title = { TTHeaderText16(text = title) },
+    title = { TTBodyText18(text = title) },
     navigationButton = {
         IconButton(onClick = navigateBack) {
             TTIcon(
                 iconRes = R.drawable.ic_back,
                 modifier = Modifier.size(16.dp),
                 contentDescription = null,
-                tint = Primary,
                 onClick = navigateBack
             )
         }
     },
+    actionButton = actionButton,
     background = background
 )

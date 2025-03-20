@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
+import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -31,7 +32,7 @@ fun TTIcon(
     size: Dp? = null,
     contentDescription: String? = null,
     onClick: (() -> Unit)? = null,
-    tint: Color? = null,
+    tint: Color? = TTTheme.colorScheme.primaryColor,
 ) {
     Column(
         modifier = Modifier.clickable(

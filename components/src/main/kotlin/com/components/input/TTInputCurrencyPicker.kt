@@ -1,33 +1,12 @@
 package com.components.input
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.DropdownMenuItem
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.ExposedDropdownMenuBox
-import androidx.compose.material3.MenuDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.VerticalDivider
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -39,37 +18,53 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.InputBorder
-import com.components.styles.InputLegend
-import com.components.styles.Placeholder
-import com.components.styles.Primary
-import com.components.styles.Secondary
-import com.components.styles.SecondaryBackground
 import com.components.text.TTBodyText
 import com.components.text.TTHeaderTextVariant
+import com.theming.TTColors.TTInputColors
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 
+/**
+ * A composable that provides a currency picker with a dropdown menu for selecting a price and a currency.
+ *
+ * This composable allows users to select a price from a list of options and choose a currency.
+ * It displays a dropdown menu for price selection and a separate clickable area for currency selection.
+ *
+ * @param modifier Modifier to be applied to the currency picker.
+ * @param items A list of [TTInputMenuDropdownItemData] representing the available price options.
+ * @param selected The currently selected [TTInputMenuDropdownItemData], or null if none is selected.
+ * @param placeholder The placeholder text to display in the price selection area when no item is selected.
+ * @param currency The currently selected currency (e.g., "USD", "EUR").
+ * @param symbol The currency symbol to display (e.g., "$", "€").
+ * @param onPriceSelected A callback to invoke when a price is selected from the dropdown.
+ * @param onCurrencyClick A callback to invoke when the currency selection area is clicked.
+ *
+ * Example usage:
+ * @sample TTInputCurrencyPickerPreview
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TTInputCurrencyPicker(
     modifier: Modifier = Modifier,
-    items: List<TTMenuInputDropdownItemData>,
-    selected: TTMenuInputDropdownItemData? = null,
+    items: List<TTInputMenuDropdownItemData>,
+    selected: TTInputMenuDropdownItemData? = null,
     placeholder: String,
     currency: String,
     symbol: String,
-    onPriceSelected: ((TTMenuInputDropdownItemData) -> Unit)? = null,
-    onCurrencyClick: () -> Unit
+    isError: Boolean = false,
+    inputColors: TTInputColors = TTInputColors.defaultColors,
+    onPriceSelected: ((TTInputMenuDropdownItemData) -> Unit)? = null,
+    onCurrencyClick: () -> Unit,
 ) {
     var isExpanded by remember { mutableStateOf(false) }
     Row(
         modifier = modifier
             .height(56.dp)
-            .background(SecondaryBackground)
+            .background(inputColors.focusedContainerColor)
             .border(
                 width = 1.dp,
-                color = InputBorder,
+                color = if (isError) inputColors.errorBorderColor else inputColors.borderColor,
                 shape = RoundedCornerShape(8.dp)
             )
             .clip(RoundedCornerShape(10.dp)),
@@ -82,7 +77,7 @@ fun TTInputCurrencyPicker(
             modifier = Modifier
                 .weight(1f)
                 .clip(RoundedCornerShape(10.dp))
-                .background(SecondaryBackground),
+                .background(inputColors.focusedContainerColor),
         ) {
             Row(
                 modifier = Modifier
@@ -98,12 +93,11 @@ fun TTInputCurrencyPicker(
                         text = placeholder,
                         maxLines = 1,
                         style = TextStyle(
-                            color = Primary,
                             fontSize = 14.sp,
                             fontFamily = FontFamily(Font(R.font.main_font_medium))
                         ),
                         overflow = TextOverflow.Ellipsis,
-                        color = Placeholder
+                        color = inputColors.placeholderColor
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
@@ -111,16 +105,15 @@ fun TTInputCurrencyPicker(
                     modifier = Modifier.rotate(-90f),
                     iconRes = R.drawable.ic_back,
                     onClick = { },
-                    tint = InputLegend
+                    tint = inputColors.placeholderColor
                 )
-
             }
             ExposedDropdownMenu(
                 expanded = isExpanded,
                 onDismissRequest = {
                     isExpanded = false
                 },
-                modifier = Modifier.background(SecondaryBackground)
+                modifier = Modifier.background(inputColors.focusedContainerColor)
             ) {
                 items.forEach { item ->
                     DropdownMenuItem(
@@ -132,7 +125,7 @@ fun TTInputCurrencyPicker(
                             onPriceSelected?.invoke(item)
                         },
                         colors = MenuDefaults.itemColors(
-                            textColor = Secondary
+                            textColor = TTTheme.colorScheme.primaryColor,
                         )
                     )
                 }
@@ -156,7 +149,7 @@ fun TTInputCurrencyPicker(
                 modifier = Modifier
                     .size(26.dp)
                     .clip(CircleShape)
-                    .background(Secondary)
+                    .background(TTTheme.colorScheme.secondaryColor)
             ) {
                 TTHeaderTextVariant(
                     modifier = Modifier.align(Alignment.Center),
@@ -171,46 +164,49 @@ fun TTInputCurrencyPicker(
                 modifier = Modifier.rotate(-90f),
                 iconRes = R.drawable.ic_back,
                 onClick = { onCurrencyClick() },
-                tint = InputLegend
+                tint = inputColors.placeholderColor
             )
         }
     }
 }
 
+/**
+ * Example usage of the TTInputCurrencyPicker composable.
+ */
 @Composable
-@Preview(backgroundColor = 0xFFFFFFFF)
+@Preview
 private fun TTInputCurrencyPickerPreview() {
     Column {
         TTInputCurrencyPicker(
             placeholder = "Precio",
             currency = "USD",
             items = listOf(
-                TTMenuInputDropdownItemData(value = 1, "asd"),
-                TTMenuInputDropdownItemData(value = 2, "asd")
+                TTInputMenuDropdownItemData(value = 1, "asd"),
+                TTInputMenuDropdownItemData(value = 2, "asd")
             ),
             symbol = "$",
             onCurrencyClick = {}
         )
         Spacer(modifier = Modifier.height(16.dp))
         TTInputCurrencyPicker(
-            selected = TTMenuInputDropdownItemData(value = 1, "asd"),
+            selected = TTInputMenuDropdownItemData(value = 1, "asd"),
             placeholder = "Precio",
             currency = "EUR",
             items = listOf(
-                TTMenuInputDropdownItemData(value = 1, "asd"),
-                TTMenuInputDropdownItemData(value = 2, "asd")
+                TTInputMenuDropdownItemData(value = 1, "asd"),
+                TTInputMenuDropdownItemData(value = 2, "asd")
             ),
             symbol = "$",
             onCurrencyClick = {}
         )
         Spacer(modifier = Modifier.height(16.dp))
         TTInputCurrencyPicker(
-            selected = TTMenuInputDropdownItemData(value = 1, "asd"),
+            selected = TTInputMenuDropdownItemData(value = 1, "asd"),
             placeholder = "Precio",
             currency = "EUR",
             items = listOf(
-                TTMenuInputDropdownItemData(value = 1, "asd"),
-                TTMenuInputDropdownItemData(value = 2, "asd")
+                TTInputMenuDropdownItemData(value = 1, "asd"),
+                TTInputMenuDropdownItemData(value = 2, "asd")
             ),
             symbol = "$",
             onCurrencyClick = {}

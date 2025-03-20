@@ -1,24 +1,12 @@
-@file:JvmName("TTInputKt")
-
 package com.components.input
 
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.*
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -28,20 +16,43 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.text.isDigitsOnly
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.input.InputType.FULL
-import com.components.styles.InputBorder
-import com.components.styles.Placeholder
-import com.components.styles.Primary
+import com.components.input.TTInputType.FULL
 import com.components.styles.SecondaryBackground
-import com.components.text.TTErrorText
-import com.components.text.TTHeaderText18
-import com.components.text.TTLegendText
+import com.components.text.*
+import com.theming.TTColors.TTInputColors
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 import com.vro.constants.INT_ZERO
 
+/**
+ * A composable that displays a customizable text input field.
+ *
+ * This composable provides a text input field with various customization options, such as
+ * placeholder text, start icon, character counter, error state, and more.
+ *
+ * @param modifier Modifier to be applied to the input field.
+ * @param value The current text value of the input field.
+ * @param placeholder The placeholder text to display when the input field is empty.
+ * @param startIcon The resource ID of an icon to display at the start of the input field.
+ * @param minLines The minimum number of lines the input field should occupy. Defaults to 1 (single line).
+ * @param maxLength The maximum number of characters allowed in the input field. If null, no limit is applied.
+ * @param showCharCounter Determines whether to display a character counter below the input field.
+ * @param minLength The minimum number of characters required in the input field.
+ * @param keyboardType The type of keyboard to display (e.g., text, number). Defaults to [KeyboardType.Text].
+ * @param suffix Text to display at the end of the input field.
+ * @param TTInputType The type of input allowed (e.g., [TTInputType.FULL] for any input or digits only).
+ * @param errorText Text to display below the input field when it is in an error state.
+ * @param isError Determines whether the input field is in an error state.
+ * @param imeAction The IME action to display on the keyboard (e.g., done, next). Defaults to [ImeAction.Unspecified].
+ * @param showBorder Determines whether to display a border around the input field.
+ * @param inputColors Custom colors to be applied to the input field. Allows for styling beyond the default colors.
+ * @param onChange A callback to invoke when the text value of the input field changes.
+ *
+ * Example usage:
+ * @sample TTInputPreview
+ */
 @Composable
 fun TTInput(
     modifier: Modifier = Modifier,
@@ -52,14 +63,14 @@ fun TTInput(
     maxLength: Int? = null,
     showCharCounter: Boolean = false,
     minLength: Int = INT_ZERO,
-    containerColor: Color = SecondaryBackground,
     keyboardType: KeyboardType = KeyboardType.Text,
     suffix: String? = null,
-    inputType: InputType = FULL,
+    ttInputType: TTInputType = FULL,
     errorText: String = EMPTY_STRING,
     isError: Boolean = false,
     imeAction: ImeAction = ImeAction.Unspecified,
     showBorder: Boolean = true,
+    inputColors: TTInputColors = TTInputColors.defaultColors,
     onChange: (String) -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -69,25 +80,25 @@ fun TTInput(
                 .then(
                     if (showBorder) Modifier.border(
                         width = 1.dp,
-                        color = if (isError) MaterialTheme.colorScheme.error else InputBorder,
+                        color = if (isError) inputColors.errorBorderColor else inputColors.borderColor,
                         shape = RoundedCornerShape(8.dp)
                     )
                     else Modifier
                 ),
             colors = TextFieldDefaults.colors(
-                focusedContainerColor = containerColor,
-                unfocusedContainerColor = containerColor,
-                disabledContainerColor = containerColor,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
-                disabledIndicatorColor = Color.Transparent,
-                errorIndicatorColor = Color.Transparent,
-                errorTextColor = MaterialTheme.colorScheme.error,
-                errorContainerColor = containerColor
+                focusedContainerColor = inputColors.focusedContainerColor,
+                unfocusedContainerColor = inputColors.unfocusedContainerColor,
+                disabledContainerColor = inputColors.disabledContainerColor,
+                focusedIndicatorColor = inputColors.focusedIndicatorColor,
+                unfocusedIndicatorColor = inputColors.unfocusedIndicatorColor,
+                disabledIndicatorColor = inputColors.disabledIndicatorColor,
+                errorIndicatorColor = inputColors.errorIndicatorColor,
+                errorTextColor = inputColors.errorTextColor,
+                errorContainerColor = inputColors.errorContainerColor,
             ),
             value = value,
             onValueChange = {
-                if (inputType == FULL || it.isDigitsOnly()) {
+                if (ttInputType == FULL || it.isDigitsOnly()) {
                     maxLength?.let { maxLength ->
                         if (it.length <= maxLength) onChange.invoke(it)
                     } ?: onChange.invoke(it)
@@ -96,7 +107,10 @@ fun TTInput(
             shape = CircleShape.copy(CornerSize(8.dp)),
             leadingIcon = startIcon?.let {
                 {
-                    TTIcon(iconRes = it)
+                    TTIcon(
+                        iconRes = it,
+                        size = 16.dp
+                    )
                 }
             },
             singleLine = minLines == 1,
@@ -108,12 +122,11 @@ fun TTInput(
                         text = placeholder,
                         maxLines = 1,
                         style = TextStyle(
-                            color = Primary,
                             fontSize = 14.sp,
                             fontFamily = FontFamily(Font(R.font.main_font_medium))
                         ),
                         overflow = TextOverflow.Ellipsis,
-                        color = Placeholder
+                        color = inputColors.placeholderColor
                     )
                 }
             },
@@ -150,10 +163,13 @@ fun TTInput(
     }
 }
 
+/**
+ * Example usage of the TTInput composable.
+ */
 @Composable
 @VROLightMultiDevicePreview
-private fun TTInputNewPreview() {
-    Column {
+private fun TTInputPreview() {
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         TTInput(
             value = EMPTY_STRING,
             placeholder = "Input",
@@ -164,19 +180,16 @@ private fun TTInputNewPreview() {
             onChange = {}
         )
         TTInput(
-            modifier = Modifier.padding(top = 8.dp),
             value = EMPTY_STRING,
             placeholder = "Input",
             onChange = {}
         )
         TTInput(
-            modifier = Modifier.padding(top = 8.dp),
             value = "value",
             placeholder = "Input",
             onChange = {}
         )
         TTInput(
-            modifier = Modifier.padding(top = 8.dp),
             value = EMPTY_STRING,
             minLength = 10,
             maxLength = 100,
@@ -185,7 +198,6 @@ private fun TTInputNewPreview() {
             onChange = {}
         )
         TTInput(
-            modifier = Modifier.padding(top = 8.dp),
             value = EMPTY_STRING,
             minLength = 10,
             maxLength = 100,

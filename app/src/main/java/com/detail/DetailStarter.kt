@@ -1,6 +1,6 @@
 package com.detail
 
-import com.ComponentType
+import com.model.ComponentType
 import com.vro.navstarter.VRONavStarter
 
 sealed class DetailStarter: VRONavStarter {

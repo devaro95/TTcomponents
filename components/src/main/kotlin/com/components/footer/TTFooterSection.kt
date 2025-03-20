@@ -6,12 +6,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.button.TTButtonIconSquare
 import com.components.guide.guideBuilder.BuildSectionParams
-import com.components.styles.Secondary
 import com.components.styles.White
 import com.domain.model.SectionModel
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @VROLightMultiDevicePreview
@@ -62,7 +62,7 @@ fun TTSectionFooter(
                         iconRes = R.drawable.ic_save_section,
                         text = params.buttonText ?: stringResource(R.string.copy_section),
                         onClick = { params.onCopySection(params.sectionModel) },
-                        backgroundColor = Secondary,
+                        backgroundColor = TTTheme.colorScheme.secondaryColor,
                         contentColor = White
                     )
                 }

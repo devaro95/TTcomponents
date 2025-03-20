@@ -12,9 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import com.components.styles.Primary
-import com.components.styles.Secondary
 import com.components.styles.White
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -29,11 +28,11 @@ fun TTRegisterIndicatorPager(
     ) {
         repeat(pagerState.pageCount) { iteration ->
             val isSelectedItem = pagerState.currentPage >= iteration
-            val color = if (isSelectedItem) Secondary else White
+            val color = if (isSelectedItem) TTTheme.colorScheme.secondaryColor else White
             Box(
                 modifier = Modifier
                     .padding(horizontal = 4.dp)
-                    .border(2.dp, Primary, CircleShape)
+                    .border(2.dp, TTTheme.colorScheme.primaryColor, CircleShape)
                     .clip(RoundedCornerShape(10.dp))
                     .background(color)
                     .height(16.dp)

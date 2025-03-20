@@ -1,20 +1,9 @@
 package com.components.picker
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.DatePicker
-import androidx.compose.material3.DatePickerDefaults
-import androidx.compose.material3.DatePickerDialog
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.SelectableDates
-import androidx.compose.material3.Text
-import androidx.compose.material3.rememberDatePickerState
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -22,18 +11,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ttcomponents.app.R
-import com.components.styles.Background
 import com.components.styles.Placeholder
-import com.components.styles.Primary
-import com.components.styles.Secondary
 import com.components.styles.White
 import com.components.text.TTHeaderText16
 import com.components.text.TTHeaderText30
-import com.extensions.DATE_FORMAT_MONTH_CHAR
-import com.extensions.time
-import com.extensions.toLocalDate
-import com.extensions.toString
+import com.extensions.*
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import java.time.LocalDate
 import java.util.Date
@@ -75,7 +59,7 @@ fun TTDatePicker(
                     DatePickerButton(
                         text = stringResource(R.string.accept),
                         textColor = Color.White,
-                        containerColor = Secondary,
+                        containerColor = TTTheme.colorScheme.secondaryColor,
                         onClick = { state.selectedDateMillis?.let { onConfirm(it) } }
                     )
                 }
@@ -84,8 +68,8 @@ fun TTDatePicker(
                 Row(modifier = Modifier.padding(bottom = 8.dp)) {
                     DatePickerButton(
                         text = stringResource(R.string.cancel),
-                        textColor = Primary,
-                        containerColor = Background,
+                        textColor = TTTheme.colorScheme.primaryColor,
+                        containerColor = TTTheme.colorScheme.background,
                         onClick = onCancel
                     )
                 }
@@ -93,15 +77,15 @@ fun TTDatePicker(
             colors = DatePickerDefaults.colors(
                 selectedDayContentColor = Color.White,
                 dividerColor = Color.White,
-                yearContentColor = Secondary,
+                yearContentColor = TTTheme.colorScheme.secondaryColor,
                 selectedYearContentColor = Color.White,
-                selectedYearContainerColor = Secondary,
-                containerColor = Background,
+                selectedYearContainerColor = TTTheme.colorScheme.secondaryColor,
+                containerColor = TTTheme.colorScheme.background,
                 disabledDayContentColor = Color(0xFFD6D6D6),
-                dayContentColor = Primary,
-                weekdayContentColor = Secondary,
-                todayContentColor = Primary,
-                navigationContentColor = Primary,
+                dayContentColor = TTTheme.colorScheme.primaryColor,
+                weekdayContentColor = TTTheme.colorScheme.secondaryColor,
+                todayContentColor = TTTheme.colorScheme.primaryColor,
+                navigationContentColor = TTTheme.colorScheme.primaryColor,
             )
         ) {
             DatePicker(
@@ -115,16 +99,16 @@ fun TTDatePicker(
                 },
                 colors = DatePickerDefaults.colors(
                     selectedDayContentColor = Color.White,
-                    dividerColor = Background,
+                    dividerColor = TTTheme.colorScheme.background,
                     yearContentColor = White,
-                    selectedYearContentColor = Background,
+                    selectedYearContentColor = TTTheme.colorScheme.background,
                     selectedYearContainerColor = White,
-                    containerColor = Background,
+                    containerColor = TTTheme.colorScheme.background,
                     disabledDayContentColor = Placeholder,
-                    dayContentColor = Primary,
+                    dayContentColor = TTTheme.colorScheme.primaryColor,
                     weekdayContentColor = White,
-                    todayContentColor = Primary,
-                    navigationContentColor = Primary,
+                    todayContentColor = TTTheme.colorScheme.primaryColor,
+                    navigationContentColor = TTTheme.colorScheme.primaryColor,
                 ),
                 headline = {
                     TTHeaderText30(

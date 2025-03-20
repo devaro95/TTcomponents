@@ -3,14 +3,12 @@ package com.components.button
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.theming.TTTheme
 
 @Composable
 fun TTButtonText(
@@ -21,10 +19,10 @@ fun TTButtonText(
     onClick: () -> Unit,
 ) {
     Button(
+        modifier = modifier.height(buttonType.height),
         onClick = onClick,
-        modifier.height(buttonType.height),
         colors = ButtonDefaults.buttonColors(
-            containerColor = MaterialTheme.colorScheme.background
+            containerColor = TTTheme.colorScheme.buttonBackground
         ),
         shape = CircleShape.copy(CornerSize(24.dp)),
         enabled = enabled
@@ -32,7 +30,7 @@ fun TTButtonText(
         Text(
             text = text,
             fontSize = buttonType.fontSize,
-            color = MaterialTheme.colorScheme.primary
+            color = TTTheme.colorScheme.buttonText
         )
     }
 }

@@ -1,14 +1,14 @@
 package com.detail
 
-import com.ComponentType
+import com.model.ComponentType
 import com.vro.state.VROState
 
 data class DetailState(
-    val componentType: ComponentType
+    val componentType: ComponentType,
 ) : VROState {
     companion object {
         val INITIAL = DetailState(
-            componentType = ComponentType.BUTTON
+            componentType = ComponentType.TTButton
         )
     }
 }

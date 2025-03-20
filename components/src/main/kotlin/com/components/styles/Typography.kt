@@ -9,14 +9,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.ttcomponents.app.R
 
+//TODO COLOR
 val TTTypography = Typography(
     bodySmall = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.main_font_light))
     ),
     bodyMedium = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 16.sp,
         fontFamily = FontFamily(Font(R.font.main_font_light))
     ),
@@ -25,46 +26,46 @@ val TTTypography = Typography(
         fontFamily = FontFamily(Font(R.font.main_font_medium))
     ),
     titleSmall = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 14.sp,
         fontFamily = FontFamily(Font(R.font.main_font_light))
     ),
     titleMedium = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 16.sp,
         fontFamily = FontFamily(Font(R.font.main_font_light))
     ),
     titleLarge = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 18.sp,
         fontFamily = FontFamily(Font(R.font.main_font_light))
     ),
     headlineSmall = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 14.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.main_font_medium))
     ),
     headlineMedium = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.main_font_medium))
     ),
     headlineLarge = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.main_font_medium))
     ),
     displayMedium = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.main_font_medium))
     ),
     displayLarge = TextStyle(
-        color = Primary,
+        color = Color(0xFF333333),
         fontSize = 30.sp,
         fontWeight = FontWeight.Bold,
         fontFamily = FontFamily(Font(R.font.main_font_medium))

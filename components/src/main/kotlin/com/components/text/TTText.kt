@@ -4,17 +4,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
-import com.ttcomponents.app.R
-import com.components.styles.EmptyColor
 import com.components.styles.Font
 import com.components.styles.GuideCardHeader
-import com.components.styles.Placeholder
-import com.components.styles.Primary
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 
 @Composable
 fun TTTitleText16(
@@ -55,7 +51,7 @@ fun TTItalicText(
     Text(
         modifier = modifier,
         text = text,
-        color = Primary,
+        color = TTTheme.colorScheme.primaryColor,
         fontSize = 16.sp,
         fontStyle = FontStyle.Italic,
         textAlign = textAlign,

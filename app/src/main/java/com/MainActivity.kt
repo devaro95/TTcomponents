@@ -1,13 +1,16 @@
-package com.sample
+package com
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
-import com.detail.DetailNavigator
-import com.detail.DetailScreen
-import com.detail.DetailViewModel
+import com.components.styles.TTTheme
+import com.detail.*
+import com.list.*
+import com.sample.*
+import com.theme.*
 import com.vro.compose.VROComposableActivity
+import com.vro.compose.VROComposableTheme
 import com.vro.compose.extensions.vroComposableScreen
 import com.vro.compose.states.*
 import org.koin.androidx.compose.koinViewModel
@@ -15,6 +18,8 @@ import org.koin.androidx.compose.koinViewModel
 class MainActivity : VROComposableActivity() {
 
     override val startScreen = SampleScreen()
+
+    override val theme: VROComposableTheme = TTTheme
 
     @Composable
     override fun BottomBar(selectedItem: Int) = Unit
@@ -37,6 +42,22 @@ class MainActivity : VROComposableActivity() {
             viewModel = { koinViewModel<DetailViewModel>() },
             navigator = DetailNavigator(this@MainActivity, navController),
             content = DetailScreen(),
+            topBarState = topBarState,
+            bottomBarState = bottomBarState,
+            snackbarState = snackbarState
+        )
+        vroComposableScreen(
+            viewModel = { koinViewModel<ThemeChangeViewModel>() },
+            navigator = ThemeChangeNavigator(this@MainActivity, navController),
+            content = ThemeChangeScreen(),
+            topBarState = topBarState,
+            bottomBarState = bottomBarState,
+            snackbarState = snackbarState
+        )
+        vroComposableScreen(
+            viewModel = { koinViewModel<ListViewModel>() },
+            navigator = ListNavigator(this@MainActivity, navController),
+            content = ListScreen(),
             topBarState = topBarState,
             bottomBarState = bottomBarState,
             snackbarState = snackbarState

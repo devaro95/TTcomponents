@@ -3,20 +3,10 @@ package com.components.menu
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.LocalMinimumInteractiveComponentEnforcement
-import androidx.compose.material.Switch
-import androidx.compose.material.SwitchDefaults
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
+import androidx.compose.material.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,24 +14,42 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
 import com.components.menu.TTMenuItemData.TTMenuItemClickableArrowData
 import com.components.menu.TTMenuItemData.TTMenuItemClickableData
 import com.components.menu.TTMenuItemData.TTMenuItemSwitchData
-import com.components.styles.Primary
-import com.components.styles.Secondary
 import com.components.styles.White
-import com.components.text.TTBodyText18
 import com.components.text.TTHeaderText14
 import com.components.text.TTHeaderText16
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
+/**
+ * `TTMenuItem` is a composable function that renders a single item within a menu.
+ * It can display different types of menu items, such as clickable items,
+ * clickable items with an arrow, or items with a switch.
+ *
+ * The appearance and behavior of the menu item are determined by the `TTMenuItemData`
+ * object passed to it.
+ *
+ * @param modifier Modifier to apply to the outer `Row` containing the menu item.
+ *                 Use this to control padding, alignment, and other layout properties.
+ * @param data An instance of [TTMenuItemData], which describes the type,
+ *             content, and behavior of the menu item. It can be one of the following:
+ *             - `TTMenuItemClickableArrowData`: Represents a clickable item with an arrow indicator.
+ *             - `TTMenuItemClickableData`: Represents a simple clickable item.
+ *             - `TTMenuItemSwitchData`: Represents an item with a switch.
+ *
+ * Example usage:
+ * @sample TTMenuItemPreview()
+ *
+ */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun TTMenuItem(
+internal fun TTMenuItem(
     modifier: Modifier = Modifier,
-    data: TTMenuItemData
+    data: TTMenuItemData,
 ) {
     Row(
         modifier = modifier
@@ -96,10 +104,10 @@ fun TTMenuItem(
                             checked = data.isChecked,
                             onCheckedChange = data.onChange,
                             colors = SwitchDefaults.colors(
-                                checkedThumbColor = Secondary,
-                                checkedTrackColor = Secondary,
+                                checkedThumbColor = TTTheme.colorScheme.secondaryColor,
+                                checkedTrackColor = TTTheme.colorScheme.secondaryColor,
                                 uncheckedThumbColor = White,
-                                uncheckedTrackColor = Secondary
+                                uncheckedTrackColor = TTTheme.colorScheme.secondaryColor
                             )
                         )
                     }
@@ -120,13 +128,13 @@ sealed class TTMenuItemData(
     open val iconSize: Dp,
     open val text: String,
     open val textColor: Color,
-    open val textType: TextType
+    open val textType: TextType,
 ) {
     data class TTMenuItemSwitchData(
         @DrawableRes override val icon: Int,
         override val iconSize: Dp = 16.dp,
         override val text: String,
-        override val textColor: Color = Primary,
+        override val textColor: Color = Color.Unspecified,
         override val textType: TextType = TextType.BIG,
         val isChecked: Boolean,
         val onChange: ((Boolean) -> Unit),
@@ -136,7 +144,7 @@ sealed class TTMenuItemData(
         @DrawableRes override val icon: Int,
         override val iconSize: Dp = 16.dp,
         override val text: String,
-        override val textColor: Color = Primary,
+        override val textColor: Color = Color.Unspecified,
         override val textType: TextType = TextType.BIG,
         val onClick: () -> Unit,
     ) : TTMenuItemData(icon, iconSize, text, textColor, textType)
@@ -145,7 +153,7 @@ sealed class TTMenuItemData(
         @DrawableRes override val icon: Int,
         override val iconSize: Dp = 16.dp,
         override val text: String,
-        override val textColor: Color = Primary,
+        override val textColor: Color = Color.Unspecified,
         override val textType: TextType = TextType.BIG,
         val onClick: () -> Unit,
     ) : TTMenuItemData(icon, iconSize, text, textColor, textType)
@@ -158,7 +166,7 @@ sealed class TTMenuItemData(
 @VROLightMultiDevicePreview
 @Composable
 private fun TTMenuItemPreview() {
-    Column {
+    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
         TTMenuItem(
             data = TTMenuItemClickableArrowData(
                 icon = R.drawable.ic_delete_2,
@@ -167,14 +175,21 @@ private fun TTMenuItemPreview() {
             )
         )
         TTMenuItem(
-            modifier = Modifier.padding(top = 60.dp),
             data = TTMenuItemClickableArrowData(
                 icon = R.drawable.ic_edit,
-                text = "Editar guía",
+                text = "Example",
                 onClick = {},
                 iconSize = 20.dp,
                 textType = TTMenuItemData.TextType.NORMAL
-            ),
+            )
+        )
+        TTMenuItem(
+            data = TTMenuItemSwitchData(
+                icon = R.drawable.ic_diamond,
+                text = "Example",
+                isChecked = false,
+                onChange = {},
+            )
         )
     }
 }

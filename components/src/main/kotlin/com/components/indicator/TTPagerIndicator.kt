@@ -1,45 +1,54 @@
 package com.components.indicator
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.LocalOverscrollConfiguration
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.PagerState
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ttcomponents.app.R
 import com.components.button.TTButtonIconSquare
-import com.components.styles.Background
-import com.components.styles.Primary
-import com.components.styles.Secondary
-import com.components.styles.White
 import com.components.text.TTHeaderTextCustom
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import kotlinx.coroutines.launch
 
+/**
+ * A composable that displays a pager indicator with clickable items.
+ *
+ * This composable displays a horizontal row of items, each representing a page in a pager.
+ * It highlights the currently selected page and provides a clickable interface to navigate
+ * between pages. It also includes an optional "add" button.
+ *
+ * @param modifier Modifier to be applied to the indicator.
+ * @param pagerState The [PagerState] to be linked with the indicator.
+ * @param itemList The list of strings to be displayed as items in the indicator.
+ * @param onAddClick An optional callback to be invoked when the "add" button is clicked. If null, the button will not be displayed.
+ *
+ * Example usage:
+ * @sample TTPagerIndicatorPreview
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TTPagerIndicator(
     modifier: Modifier = Modifier,
     pagerState: PagerState,
     itemList: List<String>,
-    onAddClick: (() -> Unit)? = null
+    selectedTextColor: Color = Color.White,
+    selectedBackgroundColor: Color = TTTheme.colorScheme.secondaryColor,
+    unselectedTextColor: Color = TTTheme.colorScheme.primaryColor,
+    unselectedBackgroundColor: Color = TTTheme.colorScheme.background,
+    onAddClick: (() -> Unit)? = null,
 ) {
 
     val coroutineScope = rememberCoroutineScope()
@@ -50,16 +59,17 @@ fun TTPagerIndicator(
             modifier = modifier.wrapContentHeight(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(horizontal = 16.dp),
-            state = listState
+            state = listState,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             itemList.forEachIndexed { position, item ->
-                val color = if (pagerState.currentPage == position) Secondary else Background
-                val textColor = if (pagerState.currentPage == position) White else Primary
+                val color = if (pagerState.currentPage == position) selectedBackgroundColor else unselectedBackgroundColor
+                val textColor = if (pagerState.currentPage == position) selectedTextColor else unselectedTextColor
                 item {
                     Column(
                         modifier = Modifier
                             .clip(RoundedCornerShape(16.dp))
-                            .border(2.dp, Secondary, RoundedCornerShape(16.dp))
+                            .border(2.dp, TTTheme.colorScheme.secondaryColor, RoundedCornerShape(16.dp))
                             .background(color)
                             .clickable(
                                 indication = null,
@@ -107,5 +117,19 @@ fun TTPagerIndicator(
                 }
             }
         }
+    }
+}
+
+/**
+ * Example usage of the TTPagerIndicator composable.
+ */
+@Preview
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun TTPagerIndicatorPreview() {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        val itemList = listOf("Item 1", "Item 2", "Item 3")
+        val pagerState = rememberPagerState(pageCount = { itemList.size })
+        TTPagerIndicator(pagerState = pagerState, itemList = itemList, onAddClick = {})
     }
 }

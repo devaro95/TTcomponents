@@ -1,24 +1,19 @@
 package com.components.section
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
-import com.components.divider.TTSectionDivider
 import com.components.button.TTButtonIconSquare
+import com.components.divider.TTSectionDivider
 import com.components.paragraph.TTParagraph
-import com.components.styles.Secondary
 import com.components.styles.White
 import com.mock.textLongMock
 import com.mock.titleMock
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -40,7 +35,7 @@ fun TTSectionAdd(
             TTButtonIconSquare(
                 iconRes = R.drawable.ic_save_section,
                 text = stringResource(R.string.configure_section),
-                backgroundColor = Secondary,
+                backgroundColor = TTTheme.colorScheme.secondaryColor,
                 contentColor = White,
                 onClick = onSave
             )

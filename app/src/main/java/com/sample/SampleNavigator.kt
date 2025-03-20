@@ -1,10 +1,13 @@
 package com.sample
 
 import androidx.navigation.NavController
-import com.ComponentType
-import com.detail.DetailScreen
-import com.detail.DetailStarter
+import com.model.ComponentCategory
+import com.list.ListScreen
+import com.list.ListStarter
 import com.sample.SampleNavigator.SampleDestinations
+import com.sample.SampleNavigator.SampleDestinations.ListDestination
+import com.sample.SampleNavigator.SampleDestinations.ThemeChangeDestination
+import com.theme.ThemeChangeScreen
 import com.vro.compose.VROComposableActivity
 import com.vro.compose.VROComposableNavigator
 import com.vro.navigation.VRODestination
@@ -16,14 +19,19 @@ class SampleNavigator(
 
     override fun navigate(destination: SampleDestinations) {
         when (destination) {
-            is SampleDestinations.DetailDestination -> navigateToScreen(
-                screen = DetailScreen(),
-                starter = DetailStarter.Initialize(destination.componentType)
+            ThemeChangeDestination -> navigateToScreen(
+                screen = ThemeChangeScreen(),
+            )
+
+            is ListDestination -> navigateToScreen(
+                screen = ListScreen(),
+                starter = ListStarter.Initialize(destination.componentCategory)
             )
         }
     }
 
     sealed class SampleDestinations : VRODestination() {
-        data class DetailDestination(val componentType: ComponentType) : SampleDestinations()
+        data object ThemeChangeDestination : SampleDestinations()
+        data class ListDestination(val componentCategory: ComponentCategory) : SampleDestinations()
     }
 }

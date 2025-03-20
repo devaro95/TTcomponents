@@ -8,9 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.Primary
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @VROLightMultiDevicePreview
@@ -40,7 +40,7 @@ fun TTTextIcon(
         TTBodyText(
             modifier = Modifier.padding(start = 8.dp),
             text = text,
-            color = contentColor ?: Primary
+            color = contentColor ?: TTTheme.colorScheme.primaryColor
         )
     }
 }

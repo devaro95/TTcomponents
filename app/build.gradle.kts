@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(project(":components"))
+    implementation(project(":shared-domain"))
 
     implementation(libs.vro.compose)
     implementation(libs.vro.common)

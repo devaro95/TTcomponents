@@ -4,11 +4,12 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.components.styles.Primary
 import com.components.text.*
 import com.mock.textMock
 import com.mock.titleMock
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 
@@ -60,6 +61,7 @@ fun TTBullet(
 fun TTBulletItem(
     modifier: Modifier = Modifier,
     item: TTBulletItemData,
+    bulletColor: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Row(modifier = modifier) {
         Canvas(
@@ -71,7 +73,7 @@ fun TTBulletItem(
                 )
                 .size(8.dp)
         ) {
-            drawCircle(Primary)
+            drawCircle(bulletColor)
         }
         Column {
             if (item.title.isNotEmpty()) {

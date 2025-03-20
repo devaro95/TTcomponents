@@ -1,16 +1,8 @@
 package com.components.grid
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -19,13 +11,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.grid.data.TTGridItemData
-import com.components.styles.Background
-import com.components.styles.Primary
-import com.components.styles.Secondary
 import com.components.styles.White
 import com.components.text.TTHeaderText14
-import com.components.text.TTHeaderText24
 import com.components.text.TTHeaderTextCustom
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 
@@ -36,7 +25,7 @@ fun TTGrid(
     title: String = EMPTY_STRING,
     items: List<TTGridItemData>,
     selectedItems: List<TTGridItemData>,
-    onItemClick: (id: Int) -> Unit
+    onItemClick: (id: Int) -> Unit,
 ) {
     Column(
         modifier = modifier
@@ -72,13 +61,13 @@ fun TTGrid(
 fun TTGridItem(
     item: TTGridItemData,
     onClick: (id: Int) -> Unit,
-    isSelected: Boolean
+    isSelected: Boolean,
 ) {
     Row(
         modifier = Modifier
             .clip(RoundedCornerShape(10.dp))
-            .background(if (isSelected) Secondary else Background)
-            .border(2.dp, Secondary, RoundedCornerShape(10.dp))
+            .background(if (isSelected) TTTheme.colorScheme.secondaryColor else TTTheme.colorScheme.background)
+            .border(2.dp, TTTheme.colorScheme.secondaryColor, RoundedCornerShape(10.dp))
             .clickable(
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() },
@@ -88,7 +77,7 @@ fun TTGridItem(
         TTHeaderText14(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
             text = item.value,
-            color = if (isSelected) White else Primary
+            color = if (isSelected) White else TTTheme.colorScheme.primaryColor
         )
     }
 }

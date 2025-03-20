@@ -5,7 +5,10 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,6 +26,28 @@ import com.extensions.toBitmap
 import com.mock.imageMock
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
+/**
+ * `TTCardAddImage` is a composable function that creates a card for displaying an image,
+ * with the option to add or edit an image.
+ *
+ * This component is designed to handle different image states:
+ * - Displaying an image from a base64 string.
+ * - Displaying an image from a URL.
+ * - Displaying a placeholder with an "add" icon when no image is available.
+ *
+ * It also includes an "edit" overlay for existing images.
+ *
+ * @param modifier Modifier to apply to the outer `Row` of the card.
+ *                 Use this to control layout properties like padding and alignment.
+ * @param height The height of the card. Defaults to 180.dp.
+ * @param image An `ImageModel` object containing either `imageBase64` (base64 encoded string) or
+ *              `imageUrl` (a URL string) of the image to display.
+ * @param onClick Lambda that is invoked when the card or the edit button is clicked.
+ *
+ * Example Usage:
+ * @sample TTCardAddImagePreview
+ *
+ */
 @Composable
 fun TTCardAddImage(
     modifier: Modifier = Modifier,
@@ -34,9 +59,9 @@ fun TTCardAddImage(
         modifier = modifier
             .fillMaxWidth()
             .height(height)
+            .clip(RoundedCornerShape(8.dp))
             .background(SecondaryBackground)
             .border(1.dp, InputBorder, RoundedCornerShape(8.dp))
-            .clip(RoundedCornerShape(8.dp))
             .clickable(
                 indication = null,
                 interactionSource = remember { MutableInteractionSource() },
@@ -96,7 +121,7 @@ fun TTCardAddImage(
                     )
                     TTHeaderText14(
                         modifier = Modifier.padding(start = 8.dp),
-                        text = "Editar ",
+                        text = "Editar",
                         color = White,
                     )
                 }
@@ -107,9 +132,31 @@ fun TTCardAddImage(
 
 @VROLightMultiDevicePreview
 @Composable
-private fun TTCardAddImagePreview() {
-    TTCardAddImage(
-        onClick = {},
-        image = ImageModel(imageUrl = imageMock)
-    )
+fun TTCardAddImagePreview() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        var imageModelEmpty by remember { mutableStateOf(ImageModel()) }
+        TTCardAddImage(
+            image = imageModelEmpty,
+            onClick = { println("Clicked on Placeholder") }
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        var imageModelUrl by remember { mutableStateOf(ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+From+URL")) }
+        TTCardAddImage(
+            image = imageModelUrl,
+            onClick = {}
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        var imageModelHeight by remember { mutableStateOf(ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+From+URL")) }
+        TTCardAddImage(
+            image = imageModelHeight,
+            onClick = {
+                println("Clicked on height image")
+            },
+            height = 300.dp
+        )
+    }
 }

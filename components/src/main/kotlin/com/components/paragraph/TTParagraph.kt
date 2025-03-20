@@ -4,22 +4,27 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.components.text.TTBodyText
 import com.components.text.TTHeaderText18
 import com.mock.textLongMock
 import com.mock.titleMock
-import com.vro.compose.preview.VROLightMultiDevicePreview
 
-@VROLightMultiDevicePreview
-@Composable
-private fun TTParagraphPreview() {
-    TTParagraph(
-        title = titleMock,
-        text = textLongMock
-    )
-}
-
+/**
+ * A composable that displays a paragraph with a header and body text.
+ *
+ * This composable is designed to display a block of text that includes a header (title)
+ * and a body (paragraph). It uses the [TTHeaderText18] composable for the title and
+ * the [TTBodyText] composable for the paragraph text.
+ *
+ * @param modifier Modifier to be applied to the paragraph.
+ * @param title The text to display as the header of the paragraph.
+ * @param text The text to display as the body of the paragraph.
+ *
+ * Example usage:
+ * @sample TTParagraphPreview
+ */
 @Composable
 fun TTParagraph(
     modifier: Modifier = Modifier,
@@ -33,4 +38,16 @@ fun TTParagraph(
             text = text
         )
     }
+}
+
+/**
+ * Example usage of the TTParagraph composable.
+ */
+@Preview
+@Composable
+private fun TTParagraphPreview() {
+    TTParagraph(
+        title = titleMock,
+        text = textLongMock
+    )
 }

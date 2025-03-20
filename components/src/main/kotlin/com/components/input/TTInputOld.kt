@@ -1,16 +1,10 @@
 package com.components.input
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.OutlinedTextFieldDefaults
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,20 +17,48 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.text.isDigitsOnly
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.input.InputType.DIGITS
-import com.components.input.InputType.FULL
+import com.components.input.TTInputType.FULL
 import com.components.styles.Placeholder
-import com.components.styles.Primary
-import com.components.styles.Secondary
-import com.components.text.TTBodyText14
-import com.components.text.TTBodyText14Bold
-import com.components.text.TTErrorText
-import com.components.text.TTHeaderText18
+import com.components.text.*
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.constants.EMPTY_STRING
 import com.vro.constants.INT_ZERO
 
+/**
+ * A composable function that displays an old text input field.
+ *
+ * @deprecated This component is deprecated. Use [TTInput] instead.
+ *
+ * This component is an older implementation of a text input field with various options for customization.
+ * It includes features such as a placeholder, start icon, character counter, and more.
+ * However, it has been replaced by a newer, more flexible, and maintainable implementation: [TTInput].
+ *
+ * It is strongly recommended to migrate to [TTInput] for new development and consider updating existing usage as well.
+ *
+ * @param modifier The [Modifier] to be applied to the root of this composable.
+ * @param value The current text value of the input field.
+ * @param placeholder The placeholder text to display when the input field is empty.
+ * @param startIcon An optional resource ID for an icon to be displayed at the start of the input field.
+ * @param minLines The minimum number of lines to be displayed. Defaults to 1 (single-line).
+ * @param maxLength The maximum number of characters allowed. If null, no limit is applied.
+ * @param showCharCounter Whether to display the character counter. Defaults to `false`.
+ * @param minLength The minimum number of characters required. Defaults to 0.
+ * @param containerColor The background color of the input field. Defaults to transparent.
+ * @param keyboardType The keyboard type to be used (e.g., Text, Number). Defaults to `KeyboardType.Text`.
+ * @param suffix An optional text suffix to be displayed after the input text.
+ * @param TTInputType An enum value to define the type of the input.
+ * @param onChange A callback function invoked when the input text changes.
+ *
+ * Example usage (This is a deprecated component, consider using TTInput instead):
+ * [TTInputOldPreview]
+ *
+ */
+@Deprecated(
+    "This component is deprecated. Use TTInput instead.",
+    ReplaceWith("TTInput", "com.components.input.TTInput")
+)
 @Composable
 fun TTInputOld(
     modifier: Modifier = Modifier,
@@ -50,7 +72,7 @@ fun TTInputOld(
     containerColor: Color = Color.Transparent,
     keyboardType: KeyboardType = KeyboardType.Text,
     suffix: String? = null,
-    inputType: InputType = FULL,
+    TTInputType: TTInputType = FULL,
     onChange: (String) -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -60,12 +82,12 @@ fun TTInputOld(
                 focusedContainerColor = containerColor,
                 unfocusedContainerColor = containerColor,
                 disabledContainerColor = containerColor,
-                focusedBorderColor = Secondary,
-                unfocusedBorderColor = Secondary
+                focusedBorderColor = TTTheme.colorScheme.secondaryColor,
+                unfocusedBorderColor = TTTheme.colorScheme.secondaryColor
             ),
             value = value,
             onValueChange = {
-                if (inputType == FULL || it.isDigitsOnly()) {
+                if (TTInputType == FULL || it.isDigitsOnly()) {
                     maxLength?.let { maxLength ->
                         if (it.length <= maxLength) onChange.invoke(it)
                     } ?: onChange.invoke(it)
@@ -85,7 +107,7 @@ fun TTInputOld(
                     text = placeholder,
                     maxLines = 1,
                     style = TextStyle(
-                        color = Primary,
+                        color = TTTheme.colorScheme.primaryColor,
                         fontSize = 14.sp,
                         fontFamily = FontFamily(Font(R.font.main_font_medium))
                     ),
@@ -118,13 +140,9 @@ fun TTInputOld(
     }
 }
 
-enum class InputType {
-    DIGITS, FULL
-}
-
 @Composable
-@Preview(backgroundColor = 0xFFFFFFFF)
-private fun TTInputPreview() {
+@Preview
+private fun TTInputOldPreview() {
     Column {
         TTInputOld(
             value = EMPTY_STRING,

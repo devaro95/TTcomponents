@@ -9,10 +9,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.components.card.TTCardAddImageCarouselType.BIG
 import com.domain.model.GuideModel.ImageModel
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
+/**
+ * `TTCardAddImageCarousel` is a composable function that creates a horizontally scrollable carousel of `TTCardAddImage` components.
+ *
+ * It displays a list of images, allowing the user to scroll through them horizontally. Each image in the carousel is
+ * represented by a `TTCardAddImage` component, and clicking on an image triggers an `onClick` event.
+ *
+ * @param modifier Modifier to apply to the outer `LazyRow` containing the carousel.
+ *                 Use this to control layout properties, such as padding and size.
+ * @param imageList A list of `ImageModel` objects, each representing an image to be displayed in the carousel.
+ * @param type The `TTCardAddImageCarouselType` which determines the width of each `TTCardAddImage` in the carousel.
+ *             It can be either `SMALL` or `BIG`.
+ * @param onClick Lambda that is invoked when an image is clicked. It provides the index of the clicked image in the `imageList`.
+ *
+ *
+ * Example Usage:
+ * @sample TTCardAddImageCarouselPreview
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun TTCardAddImageCarousel(
@@ -42,14 +58,31 @@ fun TTCardAddImageCarousel(
 
 @VROLightMultiDevicePreview
 @Composable
-private fun TTCardAddImagePreview() {
-    TTCardAddImageCarousel(
-        imageList = listOf(ImageModel(), ImageModel()),
-        type = BIG,
-        onClick = {},
-    )
-}
-
-enum class TTCardAddImageCarouselType(val width: Int) {
-    SMALL(180), BIG(300)
+private fun TTCardAddImageCarouselPreview() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp)
+    ) {
+        TTCardAddImageCarousel(
+            imageList = listOf(
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+1"),
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+2"),
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+3")
+            ),
+            type = TTCardAddImageCarouselType.BIG,
+            onClick = {}
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        TTCardAddImageCarousel(
+            imageList = listOf(
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+4"),
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+5"),
+                ImageModel(imageUrl = "https://via.placeholder.com/600x400?text=Image+6"),
+                ImageModel()
+            ),
+            type = TTCardAddImageCarouselType.SMALL,
+            onClick = {}
+        )
+    }
 }

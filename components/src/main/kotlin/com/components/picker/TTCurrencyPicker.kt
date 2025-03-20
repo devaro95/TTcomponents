@@ -1,16 +1,8 @@
 package com.components.picker
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -19,13 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.styles.Background
-import com.components.styles.Primary
-import com.components.styles.Secondary
-import com.components.text.TTBodyText14
-import com.components.text.TTBodyText18
-import com.components.text.TTHeaderText14
-import com.components.text.TTHeaderTextVariant
+import com.components.text.*
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -33,9 +20,9 @@ fun TTCurrencyPicker(
     modifier: Modifier = Modifier,
     itemList: List<TTCurrencyItemData>,
     itemSelected: TTCurrencyItemData?,
-    onClick: (id: Int) -> Unit
+    onClick: (id: Int) -> Unit,
 ) {
-    Column(modifier = modifier.background(Background)) {
+    Column(modifier = modifier.background(TTTheme.colorScheme.background)) {
         itemList.forEach {
             Row(
                 modifier = Modifier
@@ -52,7 +39,7 @@ fun TTCurrencyPicker(
                     modifier = Modifier
                         .size(40.dp)
                         .clip(CircleShape)
-                        .background(Secondary)
+                        .background(TTTheme.colorScheme.secondaryColor)
                 ) {
                     TTHeaderTextVariant(
                         modifier = Modifier.align(Alignment.Center),
@@ -70,7 +57,7 @@ fun TTCurrencyPicker(
                 }
                 Box(
                     modifier = Modifier
-                        .border(1.dp, Primary, CircleShape)
+                        .border(1.dp, TTTheme.colorScheme.primaryColor, CircleShape)
                         .clip(CircleShape)
                         .size(22.dp)
                 ) {
@@ -78,7 +65,7 @@ fun TTCurrencyPicker(
                         modifier = Modifier
                             .clip(CircleShape)
                             .background(
-                                if (it == itemSelected) Secondary else Background
+                                if (it == itemSelected) TTTheme.colorScheme.secondaryColor else TTTheme.colorScheme.background
                             )
                             .size(16.dp)
                             .align(Alignment.Center)
@@ -93,7 +80,7 @@ data class TTCurrencyItemData(
     val value: String,
     val name: String,
     val symbol: String,
-    val id: Int
+    val id: Int,
 )
 
 @VROLightMultiDevicePreview

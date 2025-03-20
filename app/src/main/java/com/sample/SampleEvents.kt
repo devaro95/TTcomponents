@@ -1,8 +1,9 @@
 package com.sample
 
-import com.ComponentType
+import com.model.ComponentCategory
 import com.vro.event.VROEvent
 
 sealed class SampleEvents : VROEvent {
-    data class Detail(val componentType: ComponentType) : SampleEvents()
+    data object ThemeChange : SampleEvents()
+    data class List(val category: ComponentCategory) : SampleEvents()
 }

@@ -19,6 +19,7 @@ const val imageMock = "https://capasdelatierra.win/wp-content/uploads/paisajes-n
 const val addressMock = "Calle de Prueba 27, 32908 (Madrid)"
 const val acceptMock = "Aceptar"
 const val cancelMock = "Cancelar"
+const val buttonMock = "Button"
 val imageModelMock = GuideModel.ImageModel(imageUrl = imageMock)
 val menuMock = listOf(
     RestaurantMenu(

@@ -13,9 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.Secondary
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.INT_ZERO
 
@@ -28,7 +28,7 @@ fun TTCardFilter(
         modifier = Modifier
             .border(
                 width = 1.dp,
-                color = Secondary,
+                color = TTTheme.colorScheme.secondaryColor,
                 shape = RoundedCornerShape(10.dp)
             )
             .padding(vertical = 4.dp, horizontal = 16.dp)
@@ -42,7 +42,7 @@ fun TTCardFilter(
         TTIcon(
             iconRes = R.drawable.ic_filter,
             size = 14.dp,
-            tint = Secondary,
+            tint = TTTheme.colorScheme.secondaryColor,
             onClick = onClick
         )
         Text(
@@ -50,7 +50,7 @@ fun TTCardFilter(
             text = stringResource(R.string.filter),
             style = MaterialTheme.typography.bodyLarge,
             fontSize = 14.sp,
-            color = Secondary
+            color = TTTheme.colorScheme.secondaryColor
         )
         if (filters > INT_ZERO) {
             VerticalDivider(
@@ -58,13 +58,13 @@ fun TTCardFilter(
                     .height(14.dp)
                     .padding(horizontal = 8.dp),
                 thickness = 1.dp,
-                color = Secondary
+                color = TTTheme.colorScheme.secondaryColor
             )
             Text(
                 text = filters.toString(),
                 style = MaterialTheme.typography.bodyLarge,
                 fontSize = 14.sp,
-                color = Secondary
+                color = TTTheme.colorScheme.secondaryColor
             )
         }
     }

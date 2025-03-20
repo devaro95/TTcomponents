@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.TextUnit
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.components.styles.*
+import androidx.compose.ui.unit.*
+import com.components.styles.Font
+import com.components.styles.White
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -49,7 +49,7 @@ fun TTHeaderText30(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -65,7 +65,7 @@ fun TTHeaderText24(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -81,7 +81,7 @@ fun TTHeaderText16(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -97,7 +97,7 @@ fun TTHeaderText18(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -113,7 +113,7 @@ fun TTHeaderText14(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
 ) {
     Text(
         modifier = modifier,
@@ -129,7 +129,7 @@ fun TTHeaderTextCustom(
     modifier: Modifier = Modifier,
     text: String,
     textAlign: TextAlign? = null,
-    color: Color = Primary,
+    color: Color = TTTheme.colorScheme.primaryColor,
     fontSize: TextUnit,
 ) {
     Text(

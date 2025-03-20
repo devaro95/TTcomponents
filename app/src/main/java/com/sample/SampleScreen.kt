@@ -1,68 +1,82 @@
 package com.sample
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.foundation.lazy.grid.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.ComponentType
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.Background
-import com.components.styles.Primary
-import com.components.styles.Secondary
-import com.sample.SampleEvents.Detail
+import com.components.styles.White
+import com.sample.SampleEvents.List
+import com.sample.SampleEvents.ThemeChange
+import com.theming.TTTheme
+import com.ttcomponents.app.R
+import com.utils.topBarState
 import com.vro.compose.screen.VROScreen
+import com.vro.compose.states.VROTopBarBaseState
 
 class SampleScreen : VROScreen<SampleState, SampleEvents>() {
 
-    val itemList = listOf(
-        ItemList("Bullet", ComponentType.BULLET),
-        ItemList("Button", ComponentType.BUTTON),
-    )
+    override fun setTopBar(currentState: VROTopBarBaseState) =
+        topBarState(
+            title = "Components Repository",
+            actionButton = {
+                TTIcon(
+                    modifier = Modifier.padding(end = 16.dp),
+                    iconRes = R.drawable.ic_edit,
+                    size = 16.dp,
+                    onClick = { event(ThemeChange) }
+                )
+            }
+        )
 
     @Composable
     override fun ScreenContent(state: SampleState) {
-        LazyColumn(
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(2),
+            contentPadding = PaddingValues(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
             modifier = Modifier
-            .background(Background)
-            .fillMaxSize()
+                .fillMaxSize()
+                .background(TTTheme.colorScheme.background)
+                .padding(top = 24.dp)
         ) {
-            items(itemList) {
-                Column {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable(
-                                onClick = { event(Detail(it.componentType)) }
-                            )
-                            .padding(vertical = 10.dp, horizontal = 16.dp),
-                        verticalAlignment = Alignment.CenterVertically
+            items(state.components.allCategories) { item ->
+                Box(
+                    modifier = Modifier
+                        .clickable { event(List(item)) }
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(16.dp))
+                        .border(1.5.dp, TTTheme.colorScheme.primaryColor, RoundedCornerShape(16.dp))
+                        .background(White)
+                        .padding(16.dp),
+                ) {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center
                     ) {
                         Text(
-                            text = it.text,
-                            modifier = Modifier.weight(1f),
-                            fontSize = 16.sp,
-                            color = Primary
+                            text = item.title,
+                            fontSize = 14.sp,
+                            color = TTTheme.colorScheme.primaryColor,
+                            fontWeight = FontWeight.Bold
                         )
+                        Spacer(modifier = Modifier.height(16.dp))
                         TTIcon(
-                            iconRes = R.drawable.ic_back,
-                            modifier = Modifier.rotate(180f)
+                            iconRes = item.icon,
+                            size = 20.dp,
+                            onClick = { event(List(item)) }
                         )
                     }
-                    HorizontalDivider(
-                        thickness = 1.dp,
-                        modifier = Modifier.fillMaxWidth(),
-                        color = Secondary
-                    )
                 }
             }
         }
@@ -72,9 +86,4 @@ class SampleScreen : VROScreen<SampleState, SampleEvents>() {
     override fun ScreenPreview() {
         ScreenContent(SampleState.INITIAL)
     }
-
-    data class ItemList(
-        val text: String,
-        val componentType: ComponentType,
-    )
 }

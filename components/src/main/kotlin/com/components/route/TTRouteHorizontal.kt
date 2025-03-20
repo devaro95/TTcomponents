@@ -13,11 +13,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.card.TTCardElevated
-import com.components.styles.Background
-import com.components.styles.Primary
 import com.components.styles.White
 import com.components.text.*
 import com.mock.*
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @VROLightMultiDevicePreview
@@ -81,7 +80,7 @@ fun TTRouteHorizontal(
 @Composable
 private fun TTRouteHorizontalItem(item: TTRouteItemData, position: Int) {
     TTCardElevated(
-        background = Background,
+        background = TTTheme.colorScheme.background,
     ) {
         Column(
             modifier = Modifier.padding(16.dp)
@@ -92,7 +91,7 @@ private fun TTRouteHorizontalItem(item: TTRouteItemData, position: Int) {
                 ) {
                     Card(
                         colors = CardDefaults.cardColors(
-                            containerColor = Primary
+                            containerColor = TTTheme.colorScheme.primaryColor
                         ),
                         modifier = Modifier.size(24.dp)
                     ) {

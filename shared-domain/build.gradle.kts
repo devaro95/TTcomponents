@@ -12,6 +12,12 @@ dependencies {
     implementation(libs.vro.common)
 }
 
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions {
+        jvmTarget = "22"
+    }
+}
+
 afterEvaluate {
     publishing {
         publications {

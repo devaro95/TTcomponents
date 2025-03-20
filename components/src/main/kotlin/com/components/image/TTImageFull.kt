@@ -6,31 +6,38 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.components.text.TTBodyText
+import com.domain.model.GuideModel.ImageModel
 import com.extensions.toBitmap
 import com.mock.imageModelMock
 import com.mock.textMock
-import com.domain.model.GuideModel.ImageModel
-import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 
-@VROLightMultiDevicePreview
-@Composable
-private fun TTImageFullPreview() {
-    TTImageFull(
-        image = imageModelMock,
-        text = textMock
-    )
-}
-
+/**
+ * A composable that displays an image with optional descriptive text below.
+ *
+ * This composable displays either a remote image loaded using [AsyncImage] or a
+ * local image loaded from a Base64 string. It also supports displaying a
+ * descriptive text below the image.
+ *
+ * @param image The [ImageModel] containing either the URL of the image or its Base64
+ *   representation.
+ * @param text The text to display below the image. Defaults to an empty string.
+ * @param modifier Modifier to be applied to the image and text.
+ *
+ * Example usage:
+ * @sample TTImageFullPreview
+ */
 @Composable
 fun TTImageFull(
+    modifier: Modifier = Modifier,
     image: ImageModel,
     text: String = EMPTY_STRING,
 ) {
-    Column {
+    Column(modifier = modifier) {
         if (image.imageUrl.isEmpty()) {
             Image(
                 bitmap = image.imageBase64.toBitmap().asImageBitmap(),
@@ -57,4 +64,16 @@ fun TTImageFull(
                 .padding(horizontal = 16.dp)
         )
     }
+}
+
+/**
+ * Example usage of the TTImageFull composable.
+ */
+@Preview
+@Composable
+fun TTImageFullPreview() {
+    TTImageFull(
+        image = imageModelMock,
+        text = textMock
+    )
 }

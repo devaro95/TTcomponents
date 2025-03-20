@@ -1,4 +1,4 @@
-package com.sections.bullet
+package com.sections.guideSection.bullet
 
 import androidx.compose.runtime.Composable
 import com.components.bullet.TTBullet
@@ -12,15 +12,15 @@ fun TTBulletSection() {
         title = titleMock,
         itemList = listOf(
             TTBulletItemData(
-                titleMock,
+                title = titleMock,
                 text = textMock
             ),
             TTBulletItemData(
-                titleMock,
+                title = titleMock,
                 text = textMock
             ),
             TTBulletItemData(
-                titleMock,
+                title = titleMock,
                 text = textMock
             )
         )

@@ -1,19 +1,17 @@
 package com.components.route
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color.Companion.Transparent
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.styles.Primary
 import com.components.styles.White
 import com.components.text.*
 import com.mock.*
+import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @VROLightMultiDevicePreview
@@ -64,7 +62,7 @@ private fun TTRouteItem(item: TTRouteItemData, position: Int, islast: Boolean = 
         ) {
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = Primary
+                    containerColor = TTTheme.colorScheme.primaryColor
                 ),
                 modifier = Modifier.size(24.dp)
             ) {
@@ -86,7 +84,7 @@ private fun TTRouteItem(item: TTRouteItemData, position: Int, islast: Boolean = 
                     modifier = Modifier
                         .fillMaxHeight()
                         .width(1.dp),
-                    color = Primary,
+                    color = TTTheme.colorScheme.primaryColor,
                     thickness = 1.dp
                 )
             }

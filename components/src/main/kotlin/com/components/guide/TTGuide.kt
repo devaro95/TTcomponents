@@ -2,13 +2,7 @@ package com.components.guide
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.LocalOverscrollConfiguration
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.Composable
@@ -19,15 +13,15 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
-import com.ttcomponents.app.R
 import com.components.button.TTButtonIconSquare
 import com.components.guide.guideBuilder.BuildSection
 import com.components.guide.guideBuilder.BuildSectionParams
 import com.components.indicator.TTPagerIndicator
-import com.components.styles.Secondary
 import com.components.styles.White
 import com.domain.model.SectionModel
-import  com.domain.model.TabModel
+import com.domain.model.TabModel
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.constants.INT_ZERO
 import kotlin.math.absoluteValue
 
@@ -41,7 +35,7 @@ fun TTGuide(
     onEditSection: (SectionModel, tab: TabModel) -> Unit = { _, _ -> },
     onAddSection: (position: Int, tab: TabModel) -> Unit = { _, _ -> },
     onSaveSection: (SectionModel, position: Int, tab: TabModel) -> Unit = { _, _, _ -> },
-    onAddTab: (() -> Unit)? = null
+    onAddTab: (() -> Unit)? = null,
 ) {
     if (itemList.size == 1 && itemList.first().title.isEmpty()) {
         Column {
@@ -164,7 +158,7 @@ private fun AddButton(
     modifier: Modifier = Modifier,
     arrangement: Arrangement.Horizontal = Arrangement.End,
     onClick: () -> Unit,
-    text: String = stringResource(R.string.button_add_section_here)
+    text: String = stringResource(R.string.button_add_section_here),
 ) {
     Row(
         modifier = modifier
@@ -177,7 +171,7 @@ private fun AddButton(
                 .padding(horizontal = 16.dp),
             iconRes = R.drawable.ic_save_section,
             text = text,
-            backgroundColor = Secondary,
+            backgroundColor = TTTheme.colorScheme.secondaryColor,
             contentColor = White,
             onClick = onClick
         )

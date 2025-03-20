@@ -1,9 +1,14 @@
 package com.sample
 
+import com.model.ComponentsModel
 import com.vro.state.VROState
 
-class SampleState : VROState {
+class SampleState(
+    val components: ComponentsModel,
+) : VROState {
     companion object {
-        val INITIAL = SampleState()
+        val INITIAL = SampleState(
+            components = ComponentsModel
+        )
     }
 }

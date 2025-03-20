@@ -1,15 +1,8 @@
 package com.components.picker
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -22,13 +15,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.Primary
 import com.components.text.TTBodyText
 import com.components.text.TTHeaderText24
-import  com.domain.model.AvatarModel
+import com.domain.model.AvatarModel
 import com.extensions.toBitmap
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 
@@ -68,7 +61,7 @@ fun TTImagePicker(
         ) {
             Box(
                 modifier = Modifier
-                    .border(2.dp, Primary, CircleShape)
+                    .border(2.dp, TTTheme.colorScheme.primaryColor, CircleShape)
                     .clip(CircleShape)
                     .size(size)
                     .clickable(

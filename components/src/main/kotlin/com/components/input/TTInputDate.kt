@@ -1,44 +1,51 @@
 package com.components.input
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
-import androidx.compose.material3.VerticalDivider
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
-import com.components.styles.InputBorder
-import com.components.styles.Placeholder
-import com.components.styles.Primary
-import com.components.styles.SecondaryBackground
+import com.theming.TTColors.TTInputColors
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 import com.vro.constants.EMPTY_STRING
 
+/**
+ * A composable function that displays a dual-input date field.
+ *
+ * This component is designed to allow users to select two dates, typically a departure and an arrival date.
+ * It provides a visually distinct layout with two clickable sections, separated by a vertical divider.
+ *
+ * @param modifier The [Modifier] to be applied to the root of this composable.
+ * @param firstValue The string value for the first date input (e.g., departure date). Can be null.
+ * @param secondValue The string value for the second date input (e.g., arrival date). Can be null.
+ * @param onFirstClick A callback function that is invoked when the first date input area is clicked.
+ * @param onSecondClick A callback function that is invoked when the second date input area is clicked.
+ *
+ * The component is structured as a row containing two columns. Each column displays a `TTInputDateTextField` and is
+ * clickable. The visual style includes rounded corners, a background color, and a border.
+ *
+ * Example usage:
+ * @sample TTInputDateDatePreview
+ *
+ **/
 @Composable
 fun TTInputDate(
     modifier: Modifier = Modifier,
-    firstValue: String?,
-    secondValue: String?,
+    firstValue: String? = null,
+    secondValue: String? = null,
+    isError: Boolean = false,
+    inputColors: TTInputColors = TTInputColors.defaultColors,
     onFirstClick: () -> Unit,
     onSecondClick: () -> Unit,
 ) {
@@ -47,8 +54,12 @@ fun TTInputDate(
             .fillMaxWidth()
             .height(IntrinsicSize.Min)
             .clip(RoundedCornerShape(8.dp))
-            .background(SecondaryBackground)
-            .border(1.dp, InputBorder, RoundedCornerShape(8.dp))
+            .background(inputColors.focusedContainerColor)
+            .border(
+                1.dp, if (isError) inputColors.errorBorderColor
+                else inputColors.borderColor,
+                RoundedCornerShape(8.dp)
+            )
     ) {
         Column(
             Modifier
@@ -71,7 +82,7 @@ fun TTInputDate(
         }
         VerticalDivider(
             modifier = Modifier.padding(vertical = 16.dp),
-            color = Primary
+            color = TTTheme.colorScheme.primaryColor
         )
         Column(
             Modifier
@@ -89,27 +100,48 @@ fun TTInputDate(
                 shape = RoundedCornerShape(
                     topEnd = 8.dp,
                     bottomEnd = 8.dp
-                )
+                ),
+                inputColors = inputColors
             )
         }
     }
 }
 
+/**
+ * A private composable function that represents a single text field for the `TTInputDate` component.
+ *
+ * This component is designed to display a non-editable text field with a placeholder, intended for showing date values.
+ * It is typically used within the `TTInputDate` composable to render each date input section.
+ *
+ * @param value The current text value to be displayed in the text field.
+ * @param placeholder The placeholder text to display when the `value` is empty.
+ * @param shape The [Shape] to be applied to the text field's background and border.
+ * @param startIcon Optional resource ID for an icon to be displayed at the start of the text field.
+ *
+ * This component uses Material Design's `TextField` and configures it to be non-editable (disabled)
+ * and visually distinct with a custom shape and colors.
+ * The appearance of the placeholder text and the main text are controlled via the `label` and `textStyle` parameters.
+ *
+ * Example usage (typically within `TTInputDate`):
+ *
+ *
+ * */
 @Composable
 private fun TTInputDateTextField(
     value: String,
     placeholder: String,
     shape: Shape,
     startIcon: Int? = null,
+    inputColors: TTInputColors = TTInputColors.defaultColors,
 ) {
     TextField(
         colors = TextFieldDefaults.colors(
-            focusedContainerColor = SecondaryBackground,
-            unfocusedContainerColor = SecondaryBackground,
-            disabledContainerColor = SecondaryBackground,
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent
+            focusedContainerColor = inputColors.focusedContainerColor,
+            unfocusedContainerColor = inputColors.unfocusedContainerColor,
+            disabledContainerColor = inputColors.disabledContainerColor,
+            focusedIndicatorColor = inputColors.focusedIndicatorColor,
+            unfocusedIndicatorColor = inputColors.unfocusedIndicatorColor,
+            disabledIndicatorColor = inputColors.disabledIndicatorColor
         ),
         enabled = false,
         value = value,
@@ -126,21 +158,50 @@ private fun TTInputDateTextField(
                 minLines = 1,
                 style = MaterialTheme.typography.bodyMedium,
                 overflow = TextOverflow.Ellipsis,
-                color = Placeholder
+                color = inputColors.placeholderColor
             )
         }
     )
 }
 
 @Composable
-@Preview(backgroundColor = 0xFFFFFFFF)
+@Preview
 fun TTInputDateDatePreview() {
     Column {
         TTInputDate(
-            firstValue = EMPTY_STRING,
-            secondValue = "18/11/2024",
-            onFirstClick = {},
-            onSecondClick = {}
+            firstValue = "15/10/2024",
+            secondValue = "20/10/2024",
+            onFirstClick = { println("First date clicked (Example 1)") },
+            onSecondClick = { println("Second date clicked (Example 1)") }
+        )
+        TTInputDate(
+            modifier = Modifier.padding(top = 16.dp),
+            firstValue = null,
+            secondValue = "25/10/2024",
+            onFirstClick = { println("First date clicked (Example 2)") },
+            onSecondClick = { println("Second date clicked (Example 2)") }
+        )
+        TTInputDate(
+            modifier = Modifier.padding(top = 16.dp),
+            firstValue = "10/10/2024",
+            secondValue = null,
+            onFirstClick = { println("First date clicked (Example 3)") },
+            onSecondClick = { println("Second date clicked (Example 3)") }
+        )
+        TTInputDate(
+            modifier = Modifier.padding(top = 16.dp),
+            firstValue = null,
+            secondValue = null,
+            onFirstClick = { println("First date clicked (Example 4)") },
+            onSecondClick = { println("Second date clicked (Example 4)") }
+        )
+        TTInputDate(
+            modifier = Modifier.padding(top = 16.dp),
+            firstValue = "01/01/2024",
+            secondValue = "02/01/2024",
+            isError = true,
+            onFirstClick = { println("First date clicked (Example 5)") },
+            onSecondClick = { println("Second date clicked (Example 5)") }
         )
     }
 }

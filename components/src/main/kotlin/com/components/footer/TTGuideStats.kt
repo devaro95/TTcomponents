@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.ttcomponents.app.R
 import com.components.icon.TTIcon
 import com.components.icon.TTIconLike
-import com.components.styles.Primary
 import com.components.text.TTBodyText14
+import com.theming.TTTheme
+import com.ttcomponents.app.R
 
 @Composable
 fun TTGuideStats(
@@ -21,7 +21,7 @@ fun TTGuideStats(
     userSaved: Boolean,
     onSaveClick: () -> Unit,
     totalSaves: Int,
-    tint: Color = Primary
+    tint: Color = TTTheme.colorScheme.primaryColor
 ) {
     Row(modifier) {
         TTIconLike(
