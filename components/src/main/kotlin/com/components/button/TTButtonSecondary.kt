@@ -11,6 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 
 /**
  * A secondary style button composable.
@@ -32,6 +33,7 @@ fun TTButtonSecondary(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     onClick: () -> Unit,
 ) {
     Button(
@@ -40,8 +42,8 @@ fun TTButtonSecondary(
             .height(51.dp)
             .fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(
-            containerColor = TTTheme.colorScheme.buttonBackground,
-            disabledContainerColor = TTTheme.colorScheme.disabledButtonBackground
+            containerColor = colors.buttonBackground,
+            disabledContainerColor = colors.disabledButtonBackground
         ),
         shape = CircleShape.copy(CornerSize(24.dp)),
         enabled = enabled
@@ -49,8 +51,8 @@ fun TTButtonSecondary(
         Text(
             text = text,
             fontSize = 16.sp,
-            color = if (enabled) TTTheme.colorScheme.buttonText
-            else TTTheme.colorScheme.disabledButtonText,
+            color = if (enabled) colors.buttonText
+            else colors.disabledButtonText,
             modifier = Modifier.alpha(if (enabled) 1f else 0.5f)
         )
     }

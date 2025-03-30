@@ -6,7 +6,7 @@ import com.components.card.TTCardAddImageCarousel
 import com.components.card.TTCardAddImageCarouselType
 import com.domain.model.GuideModel
 import com.mock.imageMock
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTCardAddImageCarouselSection() {

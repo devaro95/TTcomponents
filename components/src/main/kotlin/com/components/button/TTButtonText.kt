@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 
 @Composable
 fun TTButtonText(
@@ -16,13 +17,14 @@ fun TTButtonText(
     text: String,
     enabled: Boolean = true,
     buttonType: ButtonType = ButtonType.NORMAL,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     onClick: () -> Unit,
 ) {
     Button(
         modifier = modifier.height(buttonType.height),
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = TTTheme.colorScheme.buttonBackground
+            containerColor = colors.buttonBackground
         ),
         shape = CircleShape.copy(CornerSize(24.dp)),
         enabled = enabled
@@ -30,7 +32,7 @@ fun TTButtonText(
         Text(
             text = text,
             fontSize = buttonType.fontSize,
-            color = TTTheme.colorScheme.buttonText
+            color = colors.buttonText
         )
     }
 }

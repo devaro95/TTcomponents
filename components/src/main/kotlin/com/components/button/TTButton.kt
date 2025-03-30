@@ -10,6 +10,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.*
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 
 /**
  * A customizable button composable that allows for different button types and states.
@@ -36,14 +37,15 @@ fun TTButton(
     text: String,
     enabled: Boolean = true,
     buttonType: ButtonType = ButtonType.NORMAL,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     onClick: () -> Unit,
 ) {
     Button(
         modifier = modifier.height(buttonType.height),
         onClick = onClick,
         colors = ButtonDefaults.buttonColors(
-            containerColor = TTTheme.colorScheme.buttonBackground,
-            disabledContainerColor = TTTheme.colorScheme.disabledButtonBackground
+            containerColor = colors.buttonBackground,
+            disabledContainerColor = colors.disabledButtonBackground
         ),
         shape = CircleShape.copy(CornerSize(24.dp)),
         enabled = enabled
@@ -51,8 +53,8 @@ fun TTButton(
         Text(
             text = text,
             fontSize = buttonType.fontSize,
-            color = if (enabled) TTTheme.colorScheme.buttonText
-            else TTTheme.colorScheme.disabledButtonText,
+            color = if (enabled) colors.buttonText
+            else colors.disabledButtonText,
             modifier = Modifier.alpha(if (enabled) 1f else 0.9f)
         )
     }

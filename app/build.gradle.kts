@@ -1,8 +1,11 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.android)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.ksp)
+    id("io.gitlab.arturbosch.detekt") version "1.23.8"
 }
 
 android {
@@ -26,14 +29,27 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_22
-        targetCompatibility = JavaVersion.VERSION_22
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_22.toString()
+        jvmTarget = JavaVersion.VERSION_21.toString()
     }
     buildFeatures {
         compose = true
+    }
+    detekt {
+        toolVersion = "1.23.8" // Misma versión que el plugin
+        config = files("../detekt.yml")
+        buildUponDefaultConfig = true
+    }
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            jvmTarget = "21" // or "21" depending on your needs
+        }
+    }
+    tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+        jvmTarget = "21" // or "21"
     }
 }
 
@@ -49,5 +65,6 @@ dependencies {
     implementation(libs.runtime)
     implementation(libs.koin.compose)
     implementation(libs.koin.annotations)
+    implementation(libs.compose.colorpicker)
     ksp(libs.koin.compiler)
 }

@@ -3,7 +3,7 @@ package com.sections.input
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.*
 import com.components.input.TTInputPassword
-import com.utils.Section
+import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 
 @Composable

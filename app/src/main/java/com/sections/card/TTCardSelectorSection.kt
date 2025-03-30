@@ -2,9 +2,9 @@ package com.sections.card
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.*
-import com.components.card.TTCardSelector
-import com.components.card.TTCardSelectorItem
-import com.utils.Section
+import com.components.card.selector.TTCardSelector
+import com.components.card.selector.model.TTCardSelectorItem
+import com.sections.Section
 
 @Composable
 fun TTCardSelectorSection() {

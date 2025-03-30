@@ -17,6 +17,7 @@ koinVersion = "3.5.3"
 koinAnnotations = "1.1.0"
 ksp = "2.0.0-1.0.22"
 koinCompiler = "1.1.0"
+colorpicker = "1.1.2"
 
 [libraries]
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
@@ -40,6 +41,7 @@ ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 koin-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion" }
 koin-annotations = { group = "io.insert-koin", name = "koin-annotations", version.ref = "koinAnnotations" }
 koin-compiler = { group = "io.insert-koin", name = "koin-ksp-compiler", version.ref = "koinCompiler" }
+compose-colorpicker = { module = "com.github.skydoves:colorpicker-compose", version.ref = "colorpicker" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

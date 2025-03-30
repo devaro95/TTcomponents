@@ -1,9 +1,9 @@
 package com.sample
 
 import androidx.navigation.NavController
-import com.model.ComponentCategory
 import com.list.ListScreen
 import com.list.ListStarter
+import com.model.ComponentCategory
 import com.sample.SampleNavigator.SampleDestinations
 import com.sample.SampleNavigator.SampleDestinations.ListDestination
 import com.sample.SampleNavigator.SampleDestinations.ThemeChangeDestination

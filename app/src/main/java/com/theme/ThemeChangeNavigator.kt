@@ -1,6 +1,7 @@
 package com.theme
 
 import androidx.navigation.NavController
+import com.model.ColorConfiguration
 import com.theme.ThemeChangeNavigator.ThemeChangeDestinations
 import com.vro.compose.VROComposableActivity
 import com.vro.compose.VROComposableNavigator
@@ -15,5 +16,7 @@ class ThemeChangeNavigator(
 
     }
 
-    sealed class ThemeChangeDestinations : VRODestination()
+    sealed class ThemeChangeDestinations : VRODestination() {
+        data class StyleDestination(val colorConfiguration: ColorConfiguration) : ThemeChangeDestinations()
+    }
 }

@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.sp
 import com.components.icon.TTIcon
 import com.components.text.TTBodyText
 import com.components.text.TTHeaderTextVariant
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 
@@ -53,7 +53,7 @@ fun TTInputCurrencyPicker(
     currency: String,
     symbol: String,
     isError: Boolean = false,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
     onPriceSelected: ((TTInputMenuDropdownItemData) -> Unit)? = null,
     onCurrencyClick: () -> Unit,
 ) {
@@ -61,10 +61,10 @@ fun TTInputCurrencyPicker(
     Row(
         modifier = modifier
             .height(56.dp)
-            .background(inputColors.focusedContainerColor)
+            .background(colors.focusedContainerColor)
             .border(
                 width = 1.dp,
-                color = if (isError) inputColors.errorBorderColor else inputColors.borderColor,
+                color = if (isError) colors.errorBorderColor else colors.borderColor,
                 shape = RoundedCornerShape(8.dp)
             )
             .clip(RoundedCornerShape(10.dp)),
@@ -77,7 +77,7 @@ fun TTInputCurrencyPicker(
             modifier = Modifier
                 .weight(1f)
                 .clip(RoundedCornerShape(10.dp))
-                .background(inputColors.focusedContainerColor),
+                .background(colors.focusedContainerColor),
         ) {
             Row(
                 modifier = Modifier
@@ -97,7 +97,7 @@ fun TTInputCurrencyPicker(
                             fontFamily = FontFamily(Font(R.font.main_font_medium))
                         ),
                         overflow = TextOverflow.Ellipsis,
-                        color = inputColors.placeholderColor
+                        color = colors.placeholderColor
                     )
                 }
                 Spacer(modifier = Modifier.width(16.dp))
@@ -105,7 +105,7 @@ fun TTInputCurrencyPicker(
                     modifier = Modifier.rotate(-90f),
                     iconRes = R.drawable.ic_back,
                     onClick = { },
-                    tint = inputColors.placeholderColor
+                    tint = colors.placeholderColor
                 )
             }
             ExposedDropdownMenu(
@@ -113,7 +113,7 @@ fun TTInputCurrencyPicker(
                 onDismissRequest = {
                     isExpanded = false
                 },
-                modifier = Modifier.background(inputColors.focusedContainerColor)
+                modifier = Modifier.background(colors.focusedContainerColor)
             ) {
                 items.forEach { item ->
                     DropdownMenuItem(
@@ -164,7 +164,7 @@ fun TTInputCurrencyPicker(
                 modifier = Modifier.rotate(-90f),
                 iconRes = R.drawable.ic_back,
                 onClick = { onCurrencyClick() },
-                tint = inputColors.placeholderColor
+                tint = colors.placeholderColor
             )
         }
     }

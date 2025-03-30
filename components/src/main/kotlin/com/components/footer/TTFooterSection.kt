@@ -11,6 +11,7 @@ import com.components.guide.guideBuilder.BuildSectionParams
 import com.components.styles.White
 import com.domain.model.SectionModel
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -33,6 +34,7 @@ private fun TTSectionFooterPreview() {
 fun TTSectionFooter(
     modifier: Modifier = Modifier,
     params: BuildSectionParams,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
 ) {
     Column {
         Row(modifier = modifier.padding(vertical = 16.dp)) {
@@ -62,8 +64,10 @@ fun TTSectionFooter(
                         iconRes = R.drawable.ic_save_section,
                         text = params.buttonText ?: stringResource(R.string.copy_section),
                         onClick = { params.onCopySection(params.sectionModel) },
-                        backgroundColor = TTTheme.colorScheme.secondaryColor,
-                        contentColor = White
+                        colors = colors.copy(
+                            buttonBackground = TTTheme.colorScheme.secondaryColor,
+                            buttonText = White,
+                        ),
                     )
                 }
             }

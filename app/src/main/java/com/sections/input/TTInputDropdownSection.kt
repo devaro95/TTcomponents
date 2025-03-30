@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.components.input.TTInputDropdown
 import com.components.input.TTInputDropdownItemData
-import com.utils.Section
+import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 
 @Composable

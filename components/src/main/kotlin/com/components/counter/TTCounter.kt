@@ -18,7 +18,24 @@ import com.components.text.TTHeaderText14
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
+import com.vro.constants.INT_ONE
 
+/**
+ * `TTCounter` is a composable function that creates a counter with increment and decrement buttons.
+ *
+ * This component displays a numerical value along with buttons to increase and decrease it.
+ *
+ * @param modifier Modifier to apply to the counter's outer `Row`. Use this to control layout
+ *                 properties such as position, size, and padding.
+ * @param value The current integer value of the counter.
+ * @param onAddClick Lambda that is invoked when the "add" button is clicked. It receives the
+ *                   current `value` as a parameter.
+ * @param onSubtract Lambda that is invoked when the "subtract" button is clicked. It receives the
+ *                    current `value` as a parameter.
+ *
+ * Example Usage:
+ * @sample TTCounterPreview
+ */
 @Composable
 fun TTCounter(
     modifier: Modifier = Modifier,
@@ -89,7 +106,7 @@ fun TTCounter(
 @Composable
 private fun TTCounterPreview() {
     TTCounter(
-        value = 1,
+        value = INT_ONE,
         onAddClick = {},
         onSubtract = {}
     )

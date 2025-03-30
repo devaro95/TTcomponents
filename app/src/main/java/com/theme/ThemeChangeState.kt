@@ -1,9 +1,15 @@
 package com.theme
 
+import com.theming.TTTheme
+import com.theming.colors.TTColors
 import com.vro.state.VROState
 
-class ThemeChangeState : VROState {
+data class ThemeChangeState(
+    val defaultColors: TTColors,
+) : VROState {
     companion object {
-        val INITIAL = ThemeChangeState()
+        val INITIAL = ThemeChangeState(
+            defaultColors = TTTheme.colors
+        )
     }
 }

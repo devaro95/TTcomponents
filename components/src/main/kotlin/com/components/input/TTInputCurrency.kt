@@ -4,13 +4,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.components.input.TTInputType.DIGITS
-import com.components.styles.SecondaryBackground
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.vro.constants.EMPTY_STRING
 
 /**
@@ -26,7 +24,7 @@ import com.vro.constants.EMPTY_STRING
  * @param startIcon The resource ID of an icon to display at the start of the input field.
  * @param maxLength The maximum number of digits allowed in the input field. If null, no limit is applied.
  * @param currency The currency symbol or code to display as a suffix (e.g., "€", "$", "USD").
- * @param inputColors Custom colors to be applied to the input field.
+ * @param colors Custom colors to be applied to the input field.
  * @param onChange A callback function to invoke when the text value of the input field changes.
  *
  * Example usage:
@@ -40,7 +38,7 @@ fun TTInputCurrency(
     startIcon: Int? = null,
     maxLength: Int? = null,
     currency: String,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
     onChange: (String) -> Unit,
 ) {
     TTInput(
@@ -52,7 +50,7 @@ fun TTInputCurrency(
         keyboardType = KeyboardType.NumberPassword,
         suffix = currency,
         ttInputType = DIGITS,
-        inputColors = inputColors,
+        colors = colors,
         onChange = onChange
     )
 }

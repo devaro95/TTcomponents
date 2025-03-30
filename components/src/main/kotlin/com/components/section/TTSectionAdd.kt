@@ -13,6 +13,7 @@ import com.components.styles.White
 import com.mock.textLongMock
 import com.mock.titleMock
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -20,6 +21,7 @@ import com.vro.compose.preview.VROLightMultiDevicePreview
 fun TTSectionAdd(
     modifier: Modifier = Modifier,
     onSave: () -> Unit,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column {
@@ -35,8 +37,10 @@ fun TTSectionAdd(
             TTButtonIconSquare(
                 iconRes = R.drawable.ic_save_section,
                 text = stringResource(R.string.configure_section),
-                backgroundColor = TTTheme.colorScheme.secondaryColor,
-                contentColor = White,
+                colors = colors.copy(
+                    buttonBackground = TTTheme.colorScheme.secondaryColor,
+                    buttonText = White,
+                ),
                 onClick = onSave
             )
         }

@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.builder.RenderSections
+import com.render.RenderSections
 import com.theming.TTTheme
 import com.utils.topBarBackState
 import com.vro.compose.screen.VROScreen
@@ -19,25 +19,26 @@ class DetailScreen : VROScreen<DetailState, DetailEvents>() {
 
     @Composable
     override fun ScreenContent(state: DetailState) {
-        UpdateTopBar {
-            topBarBackState(
-                navigateBack = ::navigateBack,
-                title = state.componentType.value
-            )
-        }
-        LazyColumn(
-            modifier = Modifier
-                .background(TTTheme.colorScheme.background)
-                .fillMaxSize(),
-            contentPadding = PaddingValues(bottom = 30.dp)
-        ) {
-            item {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                    RenderSections(state.componentType)
+        state.componentType?.let { componentType ->
+            UpdateTopBar {
+                topBarBackState(
+                    navigateBack = ::navigateBack,
+                    title = componentType.value
+                )
+            }
+            LazyColumn(
+                modifier = Modifier
+                    .background(TTTheme.colorScheme.background)
+                    .fillMaxSize(),
+                contentPadding = PaddingValues(bottom = 30.dp)
+            ) {
+                item {
+                    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                        RenderSections(componentType)
+                    }
                 }
             }
         }
-
     }
 
     @Composable

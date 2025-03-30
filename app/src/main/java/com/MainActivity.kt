@@ -8,7 +8,9 @@ import com.components.styles.TTTheme
 import com.detail.*
 import com.list.*
 import com.sample.*
-import com.theme.*
+import com.theme.ThemeChangeNavigator
+import com.theme.ThemeChangeScreen
+import com.theme.ThemeChangeViewModel
 import com.vro.compose.VROComposableActivity
 import com.vro.compose.VROComposableTheme
 import com.vro.compose.extensions.vroComposableScreen

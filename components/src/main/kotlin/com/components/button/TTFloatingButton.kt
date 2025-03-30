@@ -6,11 +6,11 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 
 /**
  * A customizable floating action button composable.
@@ -33,22 +33,23 @@ fun TTFloatingButton(
     modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean = true,
-    color: Color = TTTheme.colorScheme.floatingButtonBackground,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     onClick: () -> Unit,
 ) {
     FloatingActionButton(
         onClick = { if (enabled) onClick() },
         shape = RoundedCornerShape(24.dp),
         modifier = modifier.height(50.dp),
-        containerColor = if (enabled) color else TTTheme.colorScheme.disabledFloatingButtonBackground
+        containerColor = if (enabled) colors.floatingButtonBackground
+        else colors.disabledFloatingButtonBackground
     ) {
         Column(modifier = Modifier.padding(horizontal = 24.dp)) {
             Row(horizontalArrangement = Arrangement.Center) {
                 Text(
                     text = text,
                     fontSize = 16.sp,
-                    color = if (enabled) TTTheme.colorScheme.floatingButtonText
-                    else TTTheme.colorScheme.disabledFloatingButtonText
+                    color = if (enabled) colors.floatingButtonText
+                    else colors.disabledFloatingButtonText
                 )
             }
         }

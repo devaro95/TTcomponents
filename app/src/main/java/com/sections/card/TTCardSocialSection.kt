@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import com.components.card.TTCardSocial
 import com.domain.model.GuideModel
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTCardSocialSection() {

@@ -13,11 +13,12 @@ import androidx.compose.ui.util.lerp
 import com.components.button.TTButtonIconSquare
 import com.components.guide.guideBuilder.BuildSection
 import com.components.guide.guideBuilder.BuildSectionParams
-import com.components.indicator.TTPagerIndicator
+import com.components.indicator.TTStepperTextIndicator
 import com.components.styles.White
 import com.domain.model.SectionModel
 import com.domain.model.TabModel
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
 import com.vro.constants.INT_ZERO
 import kotlin.math.absoluteValue
@@ -26,7 +27,7 @@ import kotlin.math.absoluteValue
 fun TTGuideAddSection(
     itemList: List<TabModel>,
     onAddSection: (position: Int, tab: TabModel) -> Unit,
-    onAddTab: (() -> Unit)? = null
+    onAddTab: (() -> Unit)? = null,
 ) {
     if (itemList.size == 1 && itemList.first().title.isEmpty()) {
         Column {
@@ -47,7 +48,7 @@ fun TTGuideAddSection(
     } else {
         val pagerState = rememberPagerState(pageCount = { itemList.size })
 
-        TTPagerIndicator(
+        TTStepperTextIndicator(
             modifier = Modifier.padding(bottom = 24.dp),
             pagerState = pagerState,
             itemList = itemList.map { it.title },
@@ -115,7 +116,8 @@ private fun AddButton(
     modifier: Modifier = Modifier,
     arrangement: Arrangement.Horizontal = Arrangement.End,
     onClick: () -> Unit,
-    text: String = stringResource(R.string.button_add_section_here)
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
+    text: String = stringResource(R.string.button_add_section_here),
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
@@ -126,8 +128,10 @@ private fun AddButton(
                 .padding(horizontal = 16.dp),
             iconRes = R.drawable.ic_save_section,
             text = text,
-            backgroundColor = TTTheme.colorScheme.secondaryColor,
-            contentColor = White,
+            colors = colors.copy(
+                buttonBackground = TTTheme.colorScheme.secondaryColor,
+                buttonText = White,
+            ),
             onClick = onClick
         )
     }

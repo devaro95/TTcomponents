@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
 
 /**
@@ -24,14 +25,14 @@ import com.ttcomponents.app.R
 @Composable
 fun TTButtonSave(
     modifier: Modifier = Modifier,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors,
     onClick: () -> Unit,
 ) {
     Column(modifier = Modifier.padding(start = 6.dp)) {
         TTButtonIconSquare(
             iconRes = R.drawable.ic_save_section,
             onClick = onClick,
-            backgroundColor = TTTheme.colorScheme.buttonBackground,
-            contentColor = TTTheme.colorScheme.buttonText
+            colors = colors
         )
     }
 }

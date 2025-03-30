@@ -6,7 +6,7 @@ import com.components.card.TTCardSocialTwo
 import com.domain.model.GuideModel
 import com.domain.model.GuideModel.ImageModel
 import com.mock.imageMock
-import com.utils.Section
+import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 import com.vro.constants.INT_ZERO
 

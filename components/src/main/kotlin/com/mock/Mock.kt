@@ -1,6 +1,6 @@
 package com.mock
 
-import com.components.cardcarousel.TTCardCarouselTitleItem
+import com.components.cardcarousel.model.TTCardCarouselTitleItem
 import com.components.icon.TTIconCardCarouselItemData
 import com.components.icon.TTIconCarouselItemData
 import com.domain.model.*
@@ -16,6 +16,7 @@ const val textMock =
 const val textLongMock =
     "Desde los rincones más pintorescos hasta los tesoros ocultos de cada ciudad, esta guía es un compendio de descubrimientos que te invitará a sumergirte en nuevas culturas y conectar con la autenticidad de cada destino. ¿Te apasiona probar sabores locales, explorar mercados vibrantes o simplemente perderte en las calles encantadoras de un lugar desconocido? Aquí encontrarás ideas para todos los gustos.\n\nNo se trata solo de mis experiencias, sino de proporcionarte la inspiración y la información para que crees tu propia historia de viaje única. Prepárate para embarcarte en una aventura llena de sorpresas y momentos inolvidables. ¡Descubre, vive y crea tu propia guía de viajes personalizada!"
 const val imageMock = "https://capasdelatierra.win/wp-content/uploads/paisajes-naturales.jpg"
+const val imageBase64Mock = "R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs="
 const val addressMock = "Calle de Prueba 27, 32908 (Madrid)"
 const val acceptMock = "Aceptar"
 const val cancelMock = "Cancelar"

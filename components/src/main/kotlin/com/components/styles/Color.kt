@@ -20,6 +20,7 @@ val CardBorder = Color(0xFFE4DCCF)
 val EmptyColor = Color(0xFF5E6E76)
 val EditionBackground = Color(0xA1B0BEC5)
 val SectionDetailCardColor = Color.White
+val TopBarBackground = Color(0xFFF3F2ED)
 
 val TTLightColors = lightColorScheme(
     secondaryContainer = Disabled,

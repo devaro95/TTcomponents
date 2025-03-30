@@ -8,7 +8,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import com.components.input.TTInputCurrency
 import com.ttcomponents.app.R
-import com.utils.Section
+import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 
 @Composable

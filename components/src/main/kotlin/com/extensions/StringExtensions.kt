@@ -27,3 +27,5 @@ fun Bitmap.toBase64(): String {
 fun String.toDashedText() = "$DASH $this"
 
 fun String.jumpOnSpace() = replace(SPACE, LINE_JUMP)
+
+fun String.isUrl() = this.startsWith("http")

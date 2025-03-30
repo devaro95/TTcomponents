@@ -15,7 +15,7 @@ import com.components.icon.TTIcon
 import com.components.styles.InputBorder
 import com.components.styles.InputLegend
 import com.components.text.TTHeaderText14
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.ttcomponents.app.R
 import com.vro.constants.EMPTY_STRING
 
@@ -29,7 +29,7 @@ import com.vro.constants.EMPTY_STRING
  * @param modifier Modifier to be applied to the dropdown input field.
  * @param value The text value to display within the dropdown input field.
  * @param showBorder Determines whether to display a border around the input field.
- * @param inputColors Custom colors to be applied to the input field.
+ * @param colors Custom colors to be applied to the input field.
  * @param onClick An optional callback to be invoked when the dropdown input field is clicked.
  *
  * Example usage:

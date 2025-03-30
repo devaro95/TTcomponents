@@ -7,13 +7,13 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.components.icon.TTIcon
 import com.components.text.TTHeaderText14
 import com.theming.TTTheme
+import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
 import com.vro.constants.EMPTY_STRING
 
@@ -46,14 +46,13 @@ fun TTButtonIconSquare(
     text: String = EMPTY_STRING,
     iconPadding: Dp = 8.dp,
     iconSize: Dp = 18.dp,
-    backgroundColor: Color = TTTheme.colorScheme.buttonBackground,
-    contentColor: Color = TTTheme.colorScheme.buttonText,
+    colors: TTButtonColors = TTTheme.colorScheme.buttonColors
 ) {
     ElevatedCard(
         modifier = modifier,
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.elevatedCardColors(
-            containerColor = backgroundColor
+            containerColor = colors.buttonBackground
         ),
         elevation = CardDefaults.elevatedCardElevation(defaultElevation = 4.dp),
         onClick = onClick
@@ -68,7 +67,7 @@ fun TTButtonIconSquare(
                         .padding(start = 8.dp)
                         .padding(vertical = 8.dp),
                     text = text,
-                    color = contentColor
+                    color = colors.buttonText
                 )
             }
             TTIcon(
@@ -76,7 +75,7 @@ fun TTButtonIconSquare(
                 iconRes = iconRes,
                 size = iconSize,
                 onClick = onClick,
-                tint = contentColor
+                tint = colors.buttonText
             )
         }
     }

@@ -1,17 +1,14 @@
 package com.theme
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.theming.TTColors
-import com.theming.TTTheme
+import com.components.icon.TTIcon
+import com.theme.ThemeChangeEvents.ColorChange
+import com.theme.ThemeChangeEvents.Confirm
+import com.theme.sections.*
 import com.utils.topBarBackState
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.compose.screen.VROScreen
@@ -21,24 +18,37 @@ class ThemeChangeScreen : VROScreen<ThemeChangeState, ThemeChangeEvents>() {
 
     override fun setTopBar(currentState: VROTopBarBaseState) =
         topBarBackState(
+            title = "Style",
             navigateBack = ::navigateBack,
-            title = "Theme Change"
+            actionButton = {
+                IconButton(onClick = { event(Confirm) }) {
+                    TTIcon(
+                        iconRes = com.example.tt_components.R.drawable.ic_save,
+                        modifier = Modifier.size(16.dp),
+                        contentDescription = null,
+                        onClick = { event(Confirm) }
+                    )
+                }
+            }
         )
 
     @Composable
     override fun ScreenContent(state: ThemeChangeState) {
-        Column(modifier = Modifier.fillMaxSize().background(TTTheme.colorScheme.background)) {
-            Box(
-                modifier = Modifier
-                    .background(Color.Blue)
-                    .size(50.dp)
-                    .clickable {
-                        TTTheme.setColors(
-                            TTColors.defaultColors.copy(
-                                primaryColor = Color.Blue
-                            )
-                        )
-                    }
+        Column(
+            modifier = Modifier.padding(horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            DefaultSection(
+                state = state,
+                onColorChange = { configuration, color -> event(ColorChange(configuration, color)) }
+            )
+            InputSection(
+                state = state,
+                onColorChange = { configuration, color -> event(ColorChange(configuration, color)) }
+            )
+            ButtonSection(
+                state = state,
+                onColorChange = { configuration, color -> event(ColorChange(configuration, color)) }
             )
         }
     }

@@ -6,7 +6,7 @@ import androidx.compose.ui.unit.dp
 import com.components.card.TTCardAddImage
 import com.domain.model.GuideModel.ImageModel
 import com.mock.imageMock
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTCardAddImageSection() {

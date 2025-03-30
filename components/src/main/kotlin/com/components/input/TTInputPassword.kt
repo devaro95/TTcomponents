@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.text.TTErrorText
 import com.components.text.TTHeaderText18
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -63,7 +63,7 @@ fun TTInputPassword(
     errorText: String = EMPTY_STRING,
     isError: Boolean = false,
     imeAction: ImeAction = ImeAction.Unspecified,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
     onChange: (String) -> Unit,
 ) {
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
@@ -73,19 +73,19 @@ fun TTInputPassword(
                 .fillMaxWidth()
                 .border(
                     width = 1.dp,
-                    color = if (isError) inputColors.errorBorderColor else inputColors.borderColor,
+                    color = if (isError) colors.errorBorderColor else colors.borderColor,
                     shape = RoundedCornerShape(8.dp)
                 ),
             colors = TextFieldDefaults.colors(
-                focusedContainerColor = inputColors.focusedContainerColor,
-                unfocusedContainerColor = inputColors.unfocusedContainerColor,
-                disabledContainerColor = inputColors.disabledContainerColor,
-                focusedIndicatorColor = inputColors.focusedIndicatorColor,
-                unfocusedIndicatorColor = inputColors.unfocusedIndicatorColor,
-                disabledIndicatorColor = inputColors.disabledIndicatorColor,
-                errorIndicatorColor = inputColors.errorIndicatorColor,
-                errorTextColor = inputColors.errorTextColor,
-                errorContainerColor = inputColors.errorContainerColor
+                focusedContainerColor = colors.focusedContainerColor,
+                unfocusedContainerColor = colors.unfocusedContainerColor,
+                disabledContainerColor = colors.disabledContainerColor,
+                focusedIndicatorColor = colors.focusedIndicatorColor,
+                unfocusedIndicatorColor = colors.unfocusedIndicatorColor,
+                disabledIndicatorColor = colors.disabledIndicatorColor,
+                errorIndicatorColor = colors.errorIndicatorColor,
+                errorTextColor = colors.errorTextColor,
+                errorContainerColor = colors.errorContainerColor
             ),
             value = value,
             onValueChange = onChange,
@@ -104,7 +104,7 @@ fun TTInputPassword(
                             fontFamily = FontFamily(Font(R.font.main_font_medium))
                         ),
                         overflow = TextOverflow.Ellipsis,
-                        color = inputColors.placeholderColor
+                        color = colors.placeholderColor
                     )
                 }
             },

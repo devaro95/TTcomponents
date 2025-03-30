@@ -15,10 +15,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.components.icon.TTIcon
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.theming.TTTheme
 import com.ttcomponents.app.R
-import com.vro.constants.EMPTY_STRING
 
 /**
  * A composable function that displays a dual-input date field.
@@ -45,7 +44,7 @@ fun TTInputDate(
     firstValue: String? = null,
     secondValue: String? = null,
     isError: Boolean = false,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
     onFirstClick: () -> Unit,
     onSecondClick: () -> Unit,
 ) {
@@ -54,10 +53,10 @@ fun TTInputDate(
             .fillMaxWidth()
             .height(IntrinsicSize.Min)
             .clip(RoundedCornerShape(8.dp))
-            .background(inputColors.focusedContainerColor)
+            .background(colors.focusedContainerColor)
             .border(
-                1.dp, if (isError) inputColors.errorBorderColor
-                else inputColors.borderColor,
+                1.dp, if (isError) colors.errorBorderColor
+                else colors.borderColor,
                 RoundedCornerShape(8.dp)
             )
     ) {
@@ -101,7 +100,7 @@ fun TTInputDate(
                     topEnd = 8.dp,
                     bottomEnd = 8.dp
                 ),
-                inputColors = inputColors
+                colors = colors
             )
         }
     }
@@ -132,16 +131,16 @@ private fun TTInputDateTextField(
     placeholder: String,
     shape: Shape,
     startIcon: Int? = null,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
 ) {
     TextField(
         colors = TextFieldDefaults.colors(
-            focusedContainerColor = inputColors.focusedContainerColor,
-            unfocusedContainerColor = inputColors.unfocusedContainerColor,
-            disabledContainerColor = inputColors.disabledContainerColor,
-            focusedIndicatorColor = inputColors.focusedIndicatorColor,
-            unfocusedIndicatorColor = inputColors.unfocusedIndicatorColor,
-            disabledIndicatorColor = inputColors.disabledIndicatorColor
+            focusedContainerColor = colors.focusedContainerColor,
+            unfocusedContainerColor = colors.unfocusedContainerColor,
+            disabledContainerColor = colors.disabledContainerColor,
+            focusedIndicatorColor = colors.focusedIndicatorColor,
+            unfocusedIndicatorColor = colors.unfocusedIndicatorColor,
+            disabledIndicatorColor = colors.disabledIndicatorColor
         ),
         enabled = false,
         value = value,
@@ -158,7 +157,7 @@ private fun TTInputDateTextField(
                 minLines = 1,
                 style = MaterialTheme.typography.bodyMedium,
                 overflow = TextOverflow.Ellipsis,
-                color = inputColors.placeholderColor
+                color = colors.placeholderColor
             )
         }
     )

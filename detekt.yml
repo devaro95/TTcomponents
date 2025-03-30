@@ -1,0 +1,19 @@
+naming:
+  FunctionNaming:
+    active: true
+    excludes: [ ]
+    ignoreAnnotated: [ 'Composable' ]
+
+style:
+  WildcardImport:
+    active: false
+    excludeImports: [ ]
+  MaxLineLength:
+    active: false
+  MagicNumber:
+    excludes: ['**/sections/**']
+    ignoreAnnotated: [ 'Preview', 'VROLightMultiDevicePreview' ]
+
+complexity:
+  LongMethod:
+    active: false

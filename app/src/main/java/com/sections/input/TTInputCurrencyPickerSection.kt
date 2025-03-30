@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.*
 import com.components.input.TTInputCurrencyPicker
 import com.components.input.TTInputMenuDropdownItemData
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTInputCurrencyPickerSection() {

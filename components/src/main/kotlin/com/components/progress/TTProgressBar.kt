@@ -1,7 +1,6 @@
 package com.components.progress
 
-import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.animation.core.tween
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,28 +8,47 @@ import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.platform.LocalLifecycleOwner
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 import com.vro.constants.FLOAT_ZERO
 
+/**
+ * `TTProgressBar` is a composable function that creates a custom linear progress bar.
+ *
+ * This component displays a linear progress bar that animates from 0 to `finalProgress` over
+ * a specified duration. It also provides a callback for when the progress reaches its final value.
+ *
+ * @param modifier Modifier to apply to the progress bar. Use this to control layout properties, such as
+ *                 padding, size, and alignment.
+ * @param duration The duration of the animation in milliseconds.
+ * @param progress The final progress value (between 0.0 and 1.0) that the progress bar will animate to.
+ * @param onFinish Lambda that is invoked when the progress bar reaches the `finalProgress` value.
+ *                 Defaults to an empty lambda.
+ *
+ * Example Usage:
+ * @sample TTProgressBarPreview
+ *
+ */
 @Composable
-fun TTProgressLevel(
+fun TTProgressBar(
     modifier: Modifier = Modifier,
     duration: Int,
-    finalProgress: Float,
+    progress: Float,
     onFinish: () -> Unit = {},
 ) {
-    var progress by remember { mutableFloatStateOf(FLOAT_ZERO) }
+    val isPreview = LocalInspectionMode.current
+    var finalProgress by remember { mutableFloatStateOf(FLOAT_ZERO) }
     val animatedProgress by animateFloatAsState(
-        targetValue = progress,
-        animationSpec = tween(durationMillis = duration),
+        targetValue = if (isPreview) progress else finalProgress,
+        animationSpec = if (isPreview) snap() else tween(durationMillis = duration),
         label = EMPTY_STRING
     )
     LaunchedEffect(animatedProgress) {
-        if (animatedProgress >= finalProgress) {
+        if (animatedProgress >= progress) {
             onFinish()
         }
     }
@@ -44,23 +62,39 @@ fun TTProgressLevel(
         trackColor = TTTheme.colorScheme.background,
     )
     LaunchedEffect(LocalLifecycleOwner.current) {
-        progress = finalProgress
+        finalProgress = progress
     }
 }
 
-@VROLightMultiDevicePreview
 @Composable
-private fun ZQProgressLevelPreview() {
+@VROLightMultiDevicePreview
+fun TTProgressBarPreview() {
     Column(
-        Modifier
-            .fillMaxSize()
-            .padding(horizontal = 16.dp),
-        verticalArrangement = Arrangement.Center
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
     ) {
-        TTProgressLevel(
+        TTProgressBar(
             duration = 4000,
-            finalProgress = 1f,
-            onFinish = {}
+            progress = 0f
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        TTProgressBar(
+            duration = 1000,
+            progress = 0.5f
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+
+        TTProgressBar(
+            duration = 1000,
+            progress = 0.75f
+        )
+
+        Spacer(modifier = Modifier.height(16.dp))
+        TTProgressBar(
+            duration = 1000,
+            progress = 1f
         )
     }
 }

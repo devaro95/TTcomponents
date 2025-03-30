@@ -17,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.icon.TTIcon
-import com.theming.TTColors.TTInputColors
+import com.theming.colors.TTInputColors
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.constants.EMPTY_STRING
@@ -35,7 +35,7 @@ import com.vro.constants.EMPTY_STRING
  * @param selectedPosition The index of the currently selected item in the `items` list. If provided, the corresponding item's text will be displayed.
  * @param showBorder Determines whether to display a border around the dropdown. Defaults to `true`.
  * @param isError Indicates if the dropdown is in an error state. If `true`, the border color will change to reflect the error.
- * @param inputColors The [TTInputColors] to customize the colors of the dropdown.
+ * @param colors The [TTInputColors] to customize the colors of the dropdown.
  * @param onClick An optional callback function that is invoked when the dropdown is clicked. Typically used to display a list of options.
  *
  * The dropdown is styled with a rounded corner shape and can optionally display a border. It also includes
@@ -56,7 +56,7 @@ fun TTInputDropdown(
     selectedPosition: Int? = null,
     showBorder: Boolean = true,
     isError: Boolean = false,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTInputColors.defaultColors,
     onClick: (() -> Unit)? = null,
 ) {
     Column(
@@ -66,14 +66,14 @@ fun TTInputDropdown(
                 if (showBorder) Modifier.border(
                     border = BorderStroke(
                         width = 1.dp,
-                        color = if (isError) inputColors.errorBorderColor else inputColors.borderColor
+                        color = if (isError) colors.errorBorderColor else colors.borderColor
                     ),
                     shape = RoundedCornerShape(10.dp)
                 )
                 else Modifier
             )
             .clip(RoundedCornerShape(10.dp))
-            .background(inputColors.focusedContainerColor)
+            .background(colors.focusedContainerColor)
     ) {
         Row(
             modifier = Modifier
@@ -95,7 +95,7 @@ fun TTInputDropdown(
                         fontFamily = FontFamily(Font(R.font.main_font_medium))
                     ),
                     overflow = TextOverflow.Ellipsis,
-                    color = inputColors.placeholderColor
+                    color = colors.placeholderColor
                 )
                 if (selectedItem != null || selectedPosition != null) {
                     Text(
@@ -115,7 +115,7 @@ fun TTInputDropdown(
                     iconRes = R.drawable.ic_back,
                     modifier = Modifier.rotate(-90f),
                     onClick = { onClick?.invoke() },
-                    tint = inputColors.placeholderColor
+                    tint = colors.placeholderColor
                 )
             }
         }

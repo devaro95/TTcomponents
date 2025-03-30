@@ -18,9 +18,9 @@ import androidx.compose.ui.unit.sp
 import androidx.core.text.isDigitsOnly
 import com.components.icon.TTIcon
 import com.components.input.TTInputType.FULL
-import com.components.styles.SecondaryBackground
 import com.components.text.*
-import com.theming.TTColors.TTInputColors
+import com.theming.TTTheme
+import com.theming.colors.TTInputColors
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
@@ -47,7 +47,7 @@ import com.vro.constants.INT_ZERO
  * @param isError Determines whether the input field is in an error state.
  * @param imeAction The IME action to display on the keyboard (e.g., done, next). Defaults to [ImeAction.Unspecified].
  * @param showBorder Determines whether to display a border around the input field.
- * @param inputColors Custom colors to be applied to the input field. Allows for styling beyond the default colors.
+ * @param colors Custom colors to be applied to the input field. Allows for styling beyond the default colors.
  * @param onChange A callback to invoke when the text value of the input field changes.
  *
  * Example usage:
@@ -70,7 +70,7 @@ fun TTInput(
     isError: Boolean = false,
     imeAction: ImeAction = ImeAction.Unspecified,
     showBorder: Boolean = true,
-    inputColors: TTInputColors = TTInputColors.defaultColors,
+    colors: TTInputColors = TTTheme.colorScheme.inputColors,
     onChange: (String) -> Unit,
 ) {
     Column(modifier = modifier) {
@@ -80,21 +80,21 @@ fun TTInput(
                 .then(
                     if (showBorder) Modifier.border(
                         width = 1.dp,
-                        color = if (isError) inputColors.errorBorderColor else inputColors.borderColor,
+                        color = if (isError) colors.errorBorderColor else colors.borderColor,
                         shape = RoundedCornerShape(8.dp)
                     )
                     else Modifier
                 ),
             colors = TextFieldDefaults.colors(
-                focusedContainerColor = inputColors.focusedContainerColor,
-                unfocusedContainerColor = inputColors.unfocusedContainerColor,
-                disabledContainerColor = inputColors.disabledContainerColor,
-                focusedIndicatorColor = inputColors.focusedIndicatorColor,
-                unfocusedIndicatorColor = inputColors.unfocusedIndicatorColor,
-                disabledIndicatorColor = inputColors.disabledIndicatorColor,
-                errorIndicatorColor = inputColors.errorIndicatorColor,
-                errorTextColor = inputColors.errorTextColor,
-                errorContainerColor = inputColors.errorContainerColor,
+                focusedContainerColor = colors.focusedContainerColor,
+                unfocusedContainerColor = colors.unfocusedContainerColor,
+                disabledContainerColor = colors.disabledContainerColor,
+                focusedIndicatorColor = colors.focusedIndicatorColor,
+                unfocusedIndicatorColor = colors.unfocusedIndicatorColor,
+                disabledIndicatorColor = colors.disabledIndicatorColor,
+                errorIndicatorColor = colors.errorIndicatorColor,
+                errorTextColor = colors.errorTextColor,
+                errorContainerColor = colors.errorContainerColor,
             ),
             value = value,
             onValueChange = {
@@ -126,7 +126,7 @@ fun TTInput(
                             fontFamily = FontFamily(Font(R.font.main_font_medium))
                         ),
                         overflow = TextOverflow.Ellipsis,
-                        color = inputColors.placeholderColor
+                        color = colors.placeholderColor
                     )
                 }
             },

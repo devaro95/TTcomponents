@@ -6,7 +6,7 @@ import com.components.info.TTInfoMessage
 import com.components.info.TTInfoMessageType
 import com.mock.textMock
 import com.mock.titleMock
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTInfoSection() {

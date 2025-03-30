@@ -11,7 +11,7 @@ import com.components.menu.TTMenuItemData.TTMenuItemClickableData
 import com.components.menu.TTMenuItemData.TTMenuItemSwitchData
 import com.components.menu.TTMenuRounded
 import com.ttcomponents.app.R
-import com.utils.Section
+import com.sections.Section
 
 @Composable
 fun TTMenuRoundedSection() {

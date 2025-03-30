@@ -38,7 +38,6 @@ import com.vro.compose.preview.VROLightMultiDevicePreview
  *                      - `isLiked`: a boolean if the user has liked the guide.
  *                      - `id`: the id of the guide.
  *
- *
  * Example Usage:
  * @sample TTCardSocialPreview
  *

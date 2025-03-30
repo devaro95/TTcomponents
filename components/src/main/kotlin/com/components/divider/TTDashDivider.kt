@@ -25,7 +25,6 @@ fun TTDashDivider(modifier: Modifier = Modifier) {
             .fillMaxWidth()
             .height(2.dp)
     ) {
-
         drawLine(
             color = Color.Gray,
             start = Offset(0f, 0f),
