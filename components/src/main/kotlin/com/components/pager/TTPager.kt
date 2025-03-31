@@ -8,8 +8,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.components.pager.model.PagerStepItem
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.INT_ZERO
 
@@ -71,8 +71,8 @@ private fun TTPagerPreview() {
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    TTHeaderText18(text = "This is the first Page")
-                    TTBodyText(text = "This is an example of pager content")
+                    AXHeaderText18(text = "This is the first Page")
+                    AXBodyText(text = "This is an example of pager content")
                 }
             }
         ),
@@ -85,8 +85,8 @@ private fun TTPagerPreview() {
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    TTHeaderText18(text = "This is the second Page")
-                    TTBodyText(text = "This is an example of pager content")
+                    AXHeaderText18(text = "This is the second Page")
+                    AXBodyText(text = "This is an example of pager content")
                 }
             }
         ),

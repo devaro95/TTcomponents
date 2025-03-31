@@ -29,6 +29,8 @@ import com.theming.colors.TTButtonColors
  *
  * Example usage:
  * @sample TTButtonPreview
+ * @deprecated This composable is deprecated. Use [AXButton] instead for better performance
+ * and more customization options.
  */
 
 @Composable

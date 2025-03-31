@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import com.ttcomponents.app.R
 import com.components.divider.TTLineDivider
 import com.components.icon.TTIcon
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText16
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText16
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @Composable
@@ -34,8 +34,8 @@ fun TTSectionListItem(
             modifier = Modifier.fillMaxWidth()
         ) {
             Column(modifier = Modifier.weight(1f)) {
-                TTHeaderText16(text = title)
-                TTBodyText(
+                AXHeaderText16(text = title)
+                AXBodyText(
                     modifier = Modifier.padding(top = 4.dp),
                     text = description
                 )

@@ -2,14 +2,14 @@ package com.sections.input
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.components.input.TTInputClickableDropdown
+import com.components.input.AXInputClickableDropdown
 import com.sections.Section
 
 @Composable
-fun TTInputClickableDropdownSection() {
+fun AXInputClickableDropdownSection() {
     Column {
-        Section(title = "TTInputClickableDropdown") {
-            TTInputClickableDropdown(
+        Section(title = "AXInputClickableDropdown") {
+            AXInputClickableDropdown(
                 value = "EUR"
             )
         }

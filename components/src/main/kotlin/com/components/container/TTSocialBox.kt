@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.sp
 import com.components.container.model.SocialModel
 import com.components.footer.TTGuideStats
 import com.components.styles.GuideCardHeader
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.theming.TTTheme
 import com.theming.colors.TTCardColors
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -103,11 +103,11 @@ fun TTSocialBox(
                     )
                 }
             }
-            TTHeaderText18(
+            AXHeaderText18(
                 modifier = Modifier.padding(top = 8.dp),
                 text = data.title
             )
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier.padding(top = 4.dp),
                 text = data.description,
                 maxLines = 6,

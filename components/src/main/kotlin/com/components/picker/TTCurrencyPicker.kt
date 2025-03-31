@@ -65,7 +65,7 @@ fun TTCurrencyPicker(
                         .clip(CircleShape)
                         .background(TTTheme.colorScheme.secondaryColor)
                 ) {
-                    TTHeaderTextVariant(
+                    AXHeaderTextVariant(
                         modifier = Modifier.align(Alignment.Center),
                         text = it.symbol,
                         fontSize = 14.sp
@@ -76,9 +76,9 @@ fun TTCurrencyPicker(
                     modifier = Modifier.weight(1f),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    TTHeaderText14(text = it.value)
+                    AXHeaderText14(text = it.value)
                     it.name?.let {
-                        TTBodyText18(text = Separator + it)
+                        AXBodyText18(text = Separator + it)
                     }
                 }
                 Box(

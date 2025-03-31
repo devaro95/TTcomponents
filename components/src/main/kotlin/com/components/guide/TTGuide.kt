@@ -16,7 +16,7 @@ import androidx.compose.ui.util.lerp
 import com.components.button.TTButtonIconSquare
 import com.components.guide.guideBuilder.BuildSection
 import com.components.guide.guideBuilder.BuildSectionParams
-import com.components.indicator.TTStepperTextIndicator
+import com.components.indicator.AXStepperTextIndicator
 import com.components.styles.White
 import com.domain.model.SectionModel
 import com.domain.model.TabModel
@@ -70,7 +70,7 @@ fun TTGuide(
     } else {
         val pagerState = rememberPagerState(pageCount = { itemList.size })
 
-        TTStepperTextIndicator(
+        AXStepperTextIndicator(
             modifier = Modifier.padding(vertical = 24.dp),
             pagerState = pagerState,
             itemList = itemList.map { it.title },

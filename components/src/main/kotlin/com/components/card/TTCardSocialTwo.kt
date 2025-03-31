@@ -17,8 +17,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 import com.components.button.TTButtonIconSquare
-import com.components.text.TTBodyText14
-import com.components.text.TTHeaderText16
+import com.components.text.AXBodyText14
+import com.components.text.AXHeaderText16
 import com.domain.model.GuideModel
 import com.domain.model.GuideModel.ImageModel
 import com.theming.TTTheme
@@ -116,10 +116,10 @@ fun TTCardSocialTwo(
                     .background(Color(0xD8FFFFFF))
                     .padding(16.dp)
             ) {
-                TTHeaderText16(
+                AXHeaderText16(
                     text = guide.title
                 )
-                TTBodyText14(
+                AXBodyText14(
                     modifier = Modifier.padding(top = 8.dp),
                     text = guide.description,
                     maxLines = 3,

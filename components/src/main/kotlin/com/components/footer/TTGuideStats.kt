@@ -8,7 +8,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.components.icon.TTIcon
 import com.components.icon.TTIconLike
-import com.components.text.TTBodyText14
+import com.components.text.AXBodyText14
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 
@@ -30,7 +30,7 @@ fun TTGuideStats(
             onClick = onLikeClick,
             tint = tint
         )
-        TTBodyText14(
+        AXBodyText14(
             modifier = Modifier.padding(start = 4.dp),
             text = totalLikes.toString(),
             color = tint
@@ -43,7 +43,7 @@ fun TTGuideStats(
             onClick = onSaveClick,
             tint = tint
         )
-        TTBodyText14(
+        AXBodyText14(
             modifier = Modifier.padding(start = 4.dp),
             text = totalSaves.toString(),
             color = tint

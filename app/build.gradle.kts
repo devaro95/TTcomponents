@@ -55,6 +55,7 @@ android {
 
 dependencies {
     implementation(project(":components"))
+    implementation(project(":astro-components"))
     implementation(project(":shared-domain"))
 
     implementation(libs.vro.compose)
@@ -66,5 +67,6 @@ dependencies {
     implementation(libs.koin.compose)
     implementation(libs.koin.annotations)
     implementation(libs.compose.colorpicker)
+    implementation(libs.kotlin.immutable)
     ksp(libs.koin.compiler)
 }

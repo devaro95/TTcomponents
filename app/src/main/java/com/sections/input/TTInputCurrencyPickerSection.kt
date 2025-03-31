@@ -2,22 +2,22 @@ package com.sections.input
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.*
-import com.components.input.TTInputCurrencyPicker
-import com.components.input.TTInputMenuDropdownItemData
+import com.components.input.AXInputCurrencyPicker
+import com.components.input.AXInputMenuDropdownItemData
 import com.sections.Section
 
 @Composable
-fun TTInputCurrencyPickerSection() {
+fun AXInputCurrencyPickerSection() {
     Column {
-        Section(title = "TTInputCurrencyPicker with empty value") {
+        Section(title = "AXInputCurrencyPicker with empty value") {
             val itemList = listOf(
-                TTInputMenuDropdownItemData(value = 1, "0-10"),
-                TTInputMenuDropdownItemData(value = 2, "10-20"),
-                TTInputMenuDropdownItemData(value = 3, "20-30"),
-                TTInputMenuDropdownItemData(value = 4, "+40")
+                AXInputMenuDropdownItemData(value = 1, "0-10"),
+                AXInputMenuDropdownItemData(value = 2, "10-20"),
+                AXInputMenuDropdownItemData(value = 3, "20-30"),
+                AXInputMenuDropdownItemData(value = 4, "+40")
             )
-            var selected by remember { mutableStateOf<TTInputMenuDropdownItemData?>(null) }
-            TTInputCurrencyPicker(
+            var selected by remember { mutableStateOf<AXInputMenuDropdownItemData?>(null) }
+            AXInputCurrencyPicker(
                 selected = selected,
                 placeholder = "Precio",
                 currency = "USD",
@@ -29,16 +29,16 @@ fun TTInputCurrencyPickerSection() {
                 }
             )
         }
-        Section(title = "TTInputCurrencyPicker with value") {
+        Section(title = "AXInputCurrencyPicker with value") {
             val itemList = listOf(
-                TTInputMenuDropdownItemData(value = 0, "0"),
-                TTInputMenuDropdownItemData(value = 1, "10"),
-                TTInputMenuDropdownItemData(value = 2, "20"),
-                TTInputMenuDropdownItemData(value = 3, "30"),
-                TTInputMenuDropdownItemData(value = 4, "+40")
+                AXInputMenuDropdownItemData(value = 0, "0"),
+                AXInputMenuDropdownItemData(value = 1, "10"),
+                AXInputMenuDropdownItemData(value = 2, "20"),
+                AXInputMenuDropdownItemData(value = 3, "30"),
+                AXInputMenuDropdownItemData(value = 4, "+40")
             )
             var selected by remember { mutableStateOf(itemList[0]) }
-            TTInputCurrencyPicker(
+            AXInputCurrencyPicker(
                 selected = selected,
                 placeholder = "Precio",
                 currency = "EUR",

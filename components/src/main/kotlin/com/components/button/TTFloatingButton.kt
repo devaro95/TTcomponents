@@ -27,6 +27,8 @@ import com.theming.colors.TTButtonColors
  *
  * Example usage:
  * @sample TTFloatingButtonPreview
+ * @deprecated This composable is deprecated. Use [AXFloatingButton] instead for better performance
+ * and more customization options.
  */
 @Composable
 fun TTFloatingButton(

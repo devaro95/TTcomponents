@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.grid.data.TTGridItemData
 import com.components.styles.White
-import com.components.text.TTHeaderText14
-import com.components.text.TTHeaderTextCustom
+import com.components.text.AXHeaderText14
+import com.components.text.AXHeaderTextCustom
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
@@ -34,7 +34,7 @@ fun TTGrid(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         if (title.isNotEmpty()) {
-            TTHeaderTextCustom(
+            AXHeaderTextCustom(
                 text = title,
                 fontSize = 20.sp
             )
@@ -74,7 +74,7 @@ fun TTGridItem(
                 onClick = { onClick(item.id) },
             )
     ) {
-        TTHeaderText14(
+        AXHeaderText14(
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
             text = item.value,
             color = if (isSelected) White else TTTheme.colorScheme.primaryColor

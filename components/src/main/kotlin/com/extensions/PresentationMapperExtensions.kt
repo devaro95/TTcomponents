@@ -1,20 +1,17 @@
 package com.extensions
 
 import android.content.Context
+import com.domain.model.AvatarModel
+import com.domain.model.AvatarModel.AVOCADO
+import com.domain.model.AvatarModel.BEAR
+import com.domain.model.AvatarModel.CACTUS
+import com.domain.model.AvatarModel.CUSTOM
+import com.domain.model.AvatarModel.LAZYBONES
 import com.ttcomponents.app.R
-import com.components.input.TTInputDropdownItemData
-import  com.domain.model.AvatarModel
-import  com.domain.model.AvatarModel.AVOCADO
-import  com.domain.model.AvatarModel.BEAR
-import  com.domain.model.AvatarModel.CACTUS
-import  com.domain.model.AvatarModel.CUSTOM
-import  com.domain.model.AvatarModel.LAZYBONES
 import com.vro.constants.INT_ONE
 import com.vro.constants.INT_ZERO
 import java.util.Currency
 import java.util.Locale
-
-fun List<String>.toDropdownItemList() = map { TTInputDropdownItemData(it) }
 
 fun AvatarModel.toDrawable() = when (this) {
     AVOCADO -> R.drawable.ic_avatar_avocado

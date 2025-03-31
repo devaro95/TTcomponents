@@ -14,7 +14,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.components.styles.White
-import com.components.text.TTHeaderText16
+import com.components.text.AXHeaderText16
 import com.domain.model.GuideModel.ImageModel
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.mock.imageModelMock
@@ -55,7 +55,7 @@ fun TTImageCardHeader(
         ),
         shape = RoundedCornerShape(10.dp)
     ) {
-        TTHeaderText16(
+        AXHeaderText16(
             text = title,
             modifier = Modifier.padding(top = 16.dp, start = 16.dp)
         )

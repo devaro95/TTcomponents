@@ -20,7 +20,7 @@ import coil.compose.AsyncImage
 import com.ttcomponents.app.R
 import com.components.icon.TTIcon
 import com.components.styles.*
-import com.components.text.TTHeaderText14
+import com.components.text.AXHeaderText14
 import com.domain.model.GuideModel.ImageModel
 import com.extensions.toBitmap
 import com.mock.imageMock
@@ -119,7 +119,7 @@ fun TTCardAddImage(
                         tint = White,
                         onClick = onClick
                     )
-                    TTHeaderText14(
+                    AXHeaderText14(
                         modifier = Modifier.padding(start = 8.dp),
                         text = "Editar",
                         color = White,

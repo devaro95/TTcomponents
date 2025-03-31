@@ -13,8 +13,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.footer.TTGuideStats
 import com.components.styles.*
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.domain.model.GuideModel
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -82,11 +82,11 @@ fun TTCardSocial(
                         color = GuideCardHeader
                     )
                 }
-                TTHeaderText18(
+                AXHeaderText18(
                     modifier = Modifier.padding(top = 8.dp),
                     text = guide.title
                 )
-                TTBodyText(
+                AXBodyText(
                     modifier = Modifier.padding(top = 4.dp),
                     text = guide.description,
                     maxLines = 6,

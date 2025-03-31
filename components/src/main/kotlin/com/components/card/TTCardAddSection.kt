@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.ttcomponents.app.R
 import com.components.paragraph.TTParagraph
 import com.components.styles.SectionDetailCardColor
-import com.components.text.TTTextIcon
+import com.components.text.AXTextIcon
 import com.mock.textLongMock
 import com.mock.titleMock
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -50,7 +50,7 @@ fun TTSectionAddCard(
                     .fillMaxWidth()
                     .padding(top = 20.dp)
             ) {
-                TTTextIcon(
+                AXTextIcon(
                     iconRes = R.drawable.ic_add,
                     text = stringResource(id = R.string.button_add_section),
                 )

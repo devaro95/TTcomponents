@@ -6,44 +6,44 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.components.input.TTInputCurrency
+import com.components.input.AXInputCurrency
 import com.ttcomponents.app.R
 import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 
 @Composable
-fun TTInputCurrencySection() {
+fun AXInputCurrencySection() {
     Column {
-        Section(title = "TTInputCurrency with empty value") {
+        Section(title = "AXInputCurrency with empty value") {
             var value by remember { mutableStateOf(EMPTY_STRING) }
-            TTInputCurrency(
+            AXInputCurrency(
                 value = value,
                 placeholder = "Input",
                 currency = "€",
                 onChange = { value = it }
             )
         }
-        Section(title = "TTInputCurrency with value") {
+        Section(title = "AXInputCurrency with value") {
             var value by remember { mutableStateOf("150") }
-            TTInputCurrency(
+            AXInputCurrency(
                 value = value,
                 placeholder = "Input",
                 currency = "$",
                 onChange = { value = it }
             )
         }
-        Section(title = "TTInputCurrency with value") {
+        Section(title = "AXInputCurrency with value") {
             var value by remember { mutableStateOf("150") }
-            TTInputCurrency(
+            AXInputCurrency(
                 value = value,
                 placeholder = "Input",
                 currency = "€",
                 onChange = { value = it }
             )
         }
-        Section(title = "TTInputCurrency with start icon") {
+        Section(title = "AXInputCurrency with start icon") {
             var value by remember { mutableStateOf("150") }
-            TTInputCurrency(
+            AXInputCurrency(
                 value = value,
                 placeholder = "Counter Input",
                 currency = "€",

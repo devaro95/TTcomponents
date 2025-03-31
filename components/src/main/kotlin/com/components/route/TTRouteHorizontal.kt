@@ -47,7 +47,7 @@ fun TTRouteHorizontal(
 ) {
     Column {
         if (title.isNotEmpty()) {
-            TTHeaderText18(
+            AXHeaderText18(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 text = title
             )
@@ -109,7 +109,7 @@ private fun TTRouteHorizontalItem(item: TTRouteItemData, position: Int) {
                         }
                     }
                 }
-                TTHeaderText16(modifier = Modifier.padding(start = 8.dp), text = item.title)
+                AXHeaderText16(modifier = Modifier.padding(start = 8.dp), text = item.title)
             }
             Column(
                 modifier = Modifier.padding(
@@ -117,7 +117,7 @@ private fun TTRouteHorizontalItem(item: TTRouteItemData, position: Int) {
                     bottom = 8.dp
                 )
             ) {
-                TTBodyText(
+                AXBodyText(
                     modifier = Modifier.padding(vertical = 8.dp),
                     text = item.text
                 )

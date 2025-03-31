@@ -2,35 +2,35 @@ package com.sections.input
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.components.input.TTInput
+import com.components.input.AXInput
 import com.sections.Section
 import com.vro.constants.EMPTY_STRING
 
 @Composable
-fun TTInputSection() {
+fun AXInputSection() {
     Column {
-        Section(title = "TTInput with placeholder") {
-            TTInput(
+        Section(title = "AXInput with placeholder") {
+            AXInput(
                 value = EMPTY_STRING,
                 placeholder = "Input",
                 onChange = {}
             )
         }
-        Section(title = "TTInput with value") {
-            TTInput(
+        Section(title = "AXInput with value") {
+            AXInput(
                 value = "Value",
                 onChange = {}
             )
         }
-        Section(title = "TTInput with value and placeholder") {
-            TTInput(
+        Section(title = "AXInput with value and placeholder") {
+            AXInput(
                 value = "value",
                 placeholder = "Input",
                 onChange = {}
             )
         }
-        Section(title = "TTInput with counter") {
-            TTInput(
+        Section(title = "AXInput with counter") {
+            AXInput(
                 value = EMPTY_STRING,
                 minLength = 10,
                 maxLength = 100,
@@ -39,8 +39,8 @@ fun TTInputSection() {
                 onChange = {}
             )
         }
-        Section(title = "TTInput with error") {
-            TTInput(
+        Section(title = "AXInput with error") {
+            AXInput(
                 value = EMPTY_STRING,
                 minLength = 10,
                 maxLength = 100,

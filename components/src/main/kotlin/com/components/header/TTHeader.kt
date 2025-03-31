@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText24
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText24
 import com.mock.textLongMock
 import com.mock.titleMock
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -27,12 +27,12 @@ fun TTHeader(
     description: String,
 ) {
     Column(modifier = modifier.padding(horizontal = 16.dp)) {
-        TTHeaderText24(
+        AXHeaderText24(
             modifier = Modifier.fillMaxWidth(),
             text = title,
             textAlign = TextAlign.Center
         )
-        TTBodyText(
+        AXBodyText(
             modifier = Modifier.padding(top = 16.dp),
             text = description
         )

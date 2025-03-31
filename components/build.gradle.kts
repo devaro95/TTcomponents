@@ -56,6 +56,7 @@ publishing {
 
 dependencies {
     implementation(project(":shared-domain"))
+    implementation(project(":astro-components"))
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.vro.compose)

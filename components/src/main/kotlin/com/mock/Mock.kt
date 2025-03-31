@@ -1,8 +1,6 @@
 package com.mock
 
 import com.components.cardcarousel.model.TTCardCarouselTitleItem
-import com.components.icon.TTIconCardCarouselItemData
-import com.components.icon.TTIconCarouselItemData
 import com.domain.model.*
 import com.domain.model.RestaurantSectionModel.RestaurantMenu
 import com.domain.model.SectionModel.InfoSection.InfoBox
@@ -60,44 +58,6 @@ val destinationMock = listOf(
         id = 1,
         title = "Australia",
         image = R.drawable.country
-    )
-)
-
-val categoryIconMock = listOf(
-    TTIconCarouselItemData(
-        text = "Comida",
-        icon = R.drawable.ic_hamb
-    ),
-    TTIconCarouselItemData(
-        text = "Museos",
-        icon = R.drawable.ic_hamb
-    ),
-    TTIconCarouselItemData(
-        text = "Rutas",
-        icon = R.drawable.ic_hamb
-    ),
-    TTIconCarouselItemData(
-        text = "Paises",
-        icon = R.drawable.ic_hamb
-    )
-)
-
-val categoryIconCardMock = persistentListOf(
-    TTIconCardCarouselItemData(
-        text = "Comida",
-        icon = R.drawable.ic_hamb
-    ),
-    TTIconCardCarouselItemData(
-        text = "Museos",
-        icon = R.drawable.ic_museum
-    ),
-    TTIconCardCarouselItemData(
-        text = "Rutas",
-        icon = R.drawable.ic_route
-    ),
-    TTIconCardCarouselItemData(
-        text = "Parques",
-        icon = R.drawable.ic_park
     )
 )
 

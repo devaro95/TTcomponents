@@ -7,8 +7,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.components.pager.TTPager
 import com.components.pager.model.PagerStepItem
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.sections.Section
 
 @Composable
@@ -23,8 +23,8 @@ fun TTPagerSection() {
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    TTHeaderText18(text = "This is the first Page")
-                    TTBodyText(text = "This is an example of pager content")
+                    AXHeaderText18(text = "This is the first Page")
+                    AXBodyText(text = "This is an example of pager content")
                 }
             }
         ),
@@ -37,8 +37,8 @@ fun TTPagerSection() {
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    TTHeaderText18(text = "This is the second Page")
-                    TTBodyText(text = "This is an example of pager content")
+                    AXHeaderText18(text = "This is the second Page")
+                    AXBodyText(text = "This is an example of pager content")
                 }
             }
         ),

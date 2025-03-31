@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.text.TTHeaderText16
-import com.components.text.TTHeaderText30
+import com.components.text.AXHeaderText16
+import com.components.text.AXHeaderText30
 import com.extensions.*
 import com.theming.TTTheme
 import com.theming.colors.TTDatePickerColors
@@ -111,7 +111,7 @@ fun TTDatePicker(
                 modifier = Modifier.navigationBarsPadding(),
                 state = state,
                 title = {
-                    TTHeaderText16(
+                    AXHeaderText16(
                         modifier = Modifier.padding(start = 24.dp, top = 24.dp),
                         text = title
                     )
@@ -130,7 +130,7 @@ fun TTDatePicker(
                     navigationContentColor = colors.navigationContentColor
                 ),
                 headline = {
-                    TTHeaderText30(
+                    AXHeaderText30(
                         modifier = Modifier.padding(horizontal = 24.dp),
                         text = state.selectedDateMillis?.toLocalDate()
                             ?.toString(DATE_FORMAT_MONTH_CHAR)

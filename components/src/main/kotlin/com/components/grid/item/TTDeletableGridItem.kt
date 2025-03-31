@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.components.grid.data.TTGridItemData
 import com.components.icon.TTIcon
 import com.components.styles.*
-import com.components.text.TTHeaderText14
+import com.components.text.AXHeaderText14
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -35,7 +35,7 @@ fun TTDeletableGridItem(
                 .background(if (isSelected) TTTheme.colorScheme.secondaryColor else TTTheme.colorScheme.background)
                 .border(2.dp, TTTheme.colorScheme.secondaryColor, RoundedCornerShape(10.dp))
         ) {
-            TTHeaderText14(
+            AXHeaderText14(
                 modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
                 text = item.value,
                 color = if (isSelected) White else TTTheme.colorScheme.primaryColor

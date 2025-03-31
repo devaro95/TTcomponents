@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.components.icon.TTIcon
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText24
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText24
 import com.extensions.isUrl
 import com.extensions.toBitmap
 import com.mock.imageBase64Mock
@@ -67,12 +67,12 @@ fun TTImagePicker(
     Column(
         modifier = modifier,
     ) {
-        TTHeaderText24(
+        AXHeaderText24(
             modifier = Modifier.fillMaxWidth(),
             text = title,
             textAlign = textAlign
         )
-        TTBodyText(
+        AXBodyText(
             modifier = Modifier
                 .padding(top = 16.dp)
                 .fillMaxWidth(),
@@ -137,7 +137,7 @@ fun TTImagePicker(
             }
         }
         if (footerText.isNotEmpty()) {
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 16.dp)
                     .fillMaxWidth(),

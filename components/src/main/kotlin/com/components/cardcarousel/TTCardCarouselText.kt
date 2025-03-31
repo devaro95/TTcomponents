@@ -13,7 +13,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.components.text.TTBodyText
+import com.components.text.AXBodyText
 import com.domain.model.GuideModel.ImageModel
 import com.extensions.toBitmap
 import com.google.accompanist.pager.HorizontalPagerIndicator
@@ -87,7 +87,7 @@ fun TTCardCarouselImage(
             }
         }
         if (text.isNotEmpty()) {
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 8.dp)
                     .padding(horizontal = 16.dp),

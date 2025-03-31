@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.components.text.TTHeaderText14
+import com.components.text.AXHeaderText14
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -38,7 +38,7 @@ fun TTIconSquare(
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             if (text.isNotEmpty()) {
-                TTHeaderText14(
+                AXHeaderText14(
                     modifier = Modifier
                         .padding(start = 8.dp)
                         .padding(vertical = 8.dp),

@@ -1,29 +1,18 @@
 package com.components.card.selector
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.components.card.selector.model.TTCardSelectorItem
 import com.components.card.selector.model.TTCardSelectorOtherItem
-import com.ttcomponents.app.R
-import com.components.input.TTInput
-import com.components.text.TTHeaderText18
-import com.components.text.TTTitleText16
+import com.components.input.AXInput
+import com.components.text.AXHeaderText18
+import com.components.text.AXTitleText16
 import com.mock.titleMock
+import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
-import com.vro.constants.EMPTY_STRING
-import java.io.Serializable
-import kotlin.collections.plus
 
 /**
  * `TTCardSelectorList` is a composable function that creates a vertical list of `TTCardSelector`
@@ -36,10 +25,10 @@ import kotlin.collections.plus
  *
  * @param modifier Modifier to apply to the outer `Column` containing the list.
  *                 Use this to control layout properties such as padding, size, and alignment.
- * @param header An optional header text to display above the list. Displayed using `TTHeaderText18`.
+ * @param header An optional header text to display above the list. Displayed using `AXHeaderText18`.
  * @param subHeader An optional subHeader text to display below the header.
  *                  If `null` and `multiSelection` is true, a default subHeader is used, indicating multiple selection.
- *                  Displayed using `TTTitleText16`.
+ *                  Displayed using `AXTitleText16`.
  * @param items A list of `TTCardSelectorItem` objects, each representing a selectable item in the list.
  * @param selectedValues A list of `TTCardSelectorItem` objects representing the currently selected items.
  *                       Items in the `items` list that are also in this list will be shown as selected.
@@ -48,7 +37,7 @@ import kotlin.collections.plus
  * @param multiSelection A boolean indicating whether the list supports multi-selection (true) or
  *                       single-selection (false).
  * @param isVisible A boolean indicating whether the list should be visible or not.
- * @param otherItem A `TTCardSelectorOtherItem` object that allows adding a `TTInput` at the end of the list.
+ * @param otherItem A `TTCardSelectorOtherItem` object that allows adding a `AXInput` at the end of the list.
  *                  It provides a field for adding a value, a placeholder, and a boolean for visibility.
  *
  * Example Usage:
@@ -69,13 +58,13 @@ fun TTCardSelectorList(
     if (isVisible) {
         Column(modifier = modifier) {
             header?.let {
-                TTHeaderText18(
+                AXHeaderText18(
                     modifier = Modifier.padding(top = 16.dp),
                     text = it
                 )
             }
             subHeader?.let {
-                TTTitleText16(
+                AXTitleText16(
                     modifier = Modifier.padding(top = 8.dp),
                     text = it
                 )
@@ -90,7 +79,7 @@ fun TTCardSelectorList(
                 )
             }
             if (otherItem.isVisible) {
-                TTInput(
+                AXInput(
                     modifier = Modifier.padding(top = 8.dp),
                     value = otherItem.value,
                     onChange = { otherItem.onChange(it) },

@@ -21,6 +21,8 @@ import com.ttcomponents.app.R
  *
  * Example usage:
  * @sample TTButtonSavePreview
+ * @deprecated This composable is deprecated. Use [AXButtonSave] instead for better performance
+ * and more customization options.
  */
 @Composable
 fun TTButtonSave(

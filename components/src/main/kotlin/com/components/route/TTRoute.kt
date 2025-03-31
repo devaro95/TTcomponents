@@ -40,7 +40,7 @@ fun TTRoute(
 ) {
     Column(modifier) {
         if (title.isNotEmpty()) {
-            TTHeaderText18(
+            AXHeaderText18(
                 modifier = Modifier.padding(bottom = 8.dp),
                 text = title
             )
@@ -95,8 +95,8 @@ private fun TTRouteItem(item: TTRouteItemData, position: Int, islast: Boolean = 
                 bottom = 8.dp
             )
         ) {
-            TTHeaderText16(text = item.title)
-            TTBodyText(
+            AXHeaderText16(text = item.title)
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 4.dp)
                     .padding(bottom = 8.dp),

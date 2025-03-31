@@ -13,8 +13,8 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.core.graphics.toColorInt
 import com.components.button.TTButton
 import com.components.icon.TTIcon
-import com.components.input.TTInput
-import com.components.input.TTInputClickableDropdownNew
+import com.components.input.AXInput
+import com.components.input.AXInputClickableDropdownNew
 import com.github.skydoves.colorpicker.compose.*
 import com.mock.titleMock
 import com.model.Configuration
@@ -38,7 +38,7 @@ fun TTThemeListItem(
             .fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        TTInputClickableDropdownNew(
+        AXInputClickableDropdownNew(
             modifier = Modifier.padding(horizontal = 24.dp),
             value = color.toHex(),
             onClick = {
@@ -85,7 +85,7 @@ fun TTThemeListItem(
                                 initialColor = color,
                             )
                             Spacer(modifier = Modifier.height(24.dp))
-                            TTInput(
+                            AXInput(
                                 modifier = Modifier.padding(horizontal = 24.dp),
                                 value = colorHex,
                                 onChange = {

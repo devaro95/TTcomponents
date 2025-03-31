@@ -7,22 +7,22 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.components.input.TTInputMenuDropdown
-import com.components.input.TTInputMenuDropdownItemData
+import com.components.input.AXInputMenuDropdown
+import com.components.input.AXInputMenuDropdownItemData
 import com.sections.Section
 
 @Composable
-fun TTInputMenuDropdownSection() {
+fun AXInputMenuDropdownSection() {
     val items = listOf(
-        TTInputMenuDropdownItemData(0, "Option 1"),
-        TTInputMenuDropdownItemData(1, "Option 2"),
-        TTInputMenuDropdownItemData(2, "Option 3")
+        AXInputMenuDropdownItemData(0, "Option 1"),
+        AXInputMenuDropdownItemData(1, "Option 2"),
+        AXInputMenuDropdownItemData(2, "Option 3")
     )
 
     Column {
-        Section(title = "TTInputDropdown with no placeholder") {
+        Section(title = "AXInputDropdown with no placeholder") {
             var selectedPosition by remember { mutableStateOf<Int?>(null) }
-            TTInputMenuDropdown(
+            AXInputMenuDropdown(
                 items = items,
                 selectedPosition = selectedPosition,
                 onItemSelected = { item ->
@@ -30,9 +30,9 @@ fun TTInputMenuDropdownSection() {
                 },
             )
         }
-        Section(title = "TTInputDropdown with placeholder") {
+        Section(title = "AXInputDropdown with placeholder") {
             var selectedPosition by remember { mutableStateOf<Int?>(null) }
-            TTInputMenuDropdown(
+            AXInputMenuDropdown(
                 placeholder = "Select an option",
                 items = items,
                 selectedPosition = selectedPosition,
@@ -41,9 +41,9 @@ fun TTInputMenuDropdownSection() {
                 },
             )
         }
-        Section(title = "TTInputDropdown with value") {
+        Section(title = "AXInputDropdown with value") {
             var selectedPosition by remember { mutableIntStateOf(2) }
-            TTInputMenuDropdown(
+            AXInputMenuDropdown(
                 placeholder = "Select an option",
                 items = items,
                 selectedPosition = selectedPosition,

@@ -11,7 +11,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.components.card.TTCardElevated
 import com.components.card.selector.model.TTCardSelectorItem
-import com.components.text.TTHeaderText16
+import com.components.text.AXHeaderText16
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -56,7 +56,7 @@ fun TTCardSelector(
                 )
                 .fillMaxWidth()
         ) {
-            TTHeaderText16(
+            AXHeaderText16(
                 modifier = Modifier.align(Alignment.CenterStart),
                 text = item.text
             )

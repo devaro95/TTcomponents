@@ -9,7 +9,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.components.text.TTBodyText
+import com.components.text.AXBodyText
 import com.domain.model.GuideModel.ImageModel
 import com.extensions.toBitmap
 import com.mock.imageModelMock
@@ -57,7 +57,7 @@ fun TTImageFull(
                 contentScale = ContentScale.Crop
             )
         }
-        TTBodyText(
+        AXBodyText(
             text = text,
             modifier = Modifier
                 .padding(top = 16.dp)

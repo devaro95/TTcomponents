@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import com.components.container.model.SocialStatsModel
 import com.components.container.model.HorizontalTextPosition
 import com.components.icon.TTIcon
-import com.components.text.TTBodyText14
+import com.components.text.AXBodyText14
 import com.theming.TTSocialStatsColors
 import com.theming.TTTheme
 import com.ttcomponents.app.R
@@ -53,7 +53,7 @@ fun TTSocialSave(
                 tint = if (data.userSaved) colors.saveIconColor else colors.unsaveIconColor
             )
             if (showText) {
-                TTBodyText14(
+                AXBodyText14(
                     modifier = Modifier.padding(start = 4.dp),
                     text = data.totalSaves.toString(),
                     color = if (data.userSaved) colors.likeTextColor else colors.unlikeTextColor
@@ -61,7 +61,7 @@ fun TTSocialSave(
             }
         } else {
             if (showText) {
-                TTBodyText14(
+                AXBodyText14(
 
                     text = data.totalSaves.toString(),
                     color = if (data.userSaved) colors.likeTextColor else colors.unlikeTextColor

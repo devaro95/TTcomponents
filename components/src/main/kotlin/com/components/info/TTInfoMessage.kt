@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.dp
 import com.components.info.TTInfoMessageType.BORDER
 import com.components.info.TTInfoMessageType.ELEVATED
 import com.components.styles.White
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -49,8 +49,8 @@ fun TTInfoMessage(
             )
         ) {
             Column(modifier = Modifier.padding(16.dp)) {
-                TTHeaderText18(text = title)
-                TTBodyText(
+                AXHeaderText18(text = title)
+                AXBodyText(
                     modifier = Modifier.padding(top = 8.dp),
                     text = message
                 )

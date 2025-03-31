@@ -8,7 +8,7 @@ import androidx.compose.ui.unit.dp
 import com.components.container.model.HorizontalTextPosition
 import com.components.container.model.SocialStatsModel
 import com.components.icon.TTIconLike
-import com.components.text.TTBodyText14
+import com.components.text.AXBodyText14
 import com.theming.TTSocialStatsColors
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -51,7 +51,7 @@ fun TTSocialLike(
                 tint = if (data.userLiked) colors.likeIconColor else colors.unlikeIconColor
             )
             if (showText) {
-                TTBodyText14(
+                AXBodyText14(
                     modifier = Modifier.padding(start = 4.dp),
                     text = data.totalLikes.toString(),
                     color = if (data.userLiked) colors.likeTextColor else colors.unlikeTextColor
@@ -59,7 +59,7 @@ fun TTSocialLike(
             }
         } else {
             if (showText) {
-                TTBodyText14(
+                AXBodyText14(
                     text = data.totalLikes.toString(),
                     color = if (data.userLiked) colors.likeTextColor else colors.unlikeTextColor
                 )

@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.components.icon.TTIcon
 import com.components.styles.TopBarBackground
-import com.components.text.TTBodyText18
+import com.components.text.AXBodyText18
 import com.ttcomponents.app.R
 import com.vro.compose.states.VROTopBarBaseState.VROTopBarState
 import com.vro.constants.EMPTY_STRING
@@ -20,7 +20,7 @@ fun topBarState(
     actionButton: @Composable (RowScope.() -> Unit)? = null,
     background: Color = TopBarBackground,
 ) = VROTopBarState(
-    title = { TTBodyText18(text = title) },
+    title = { AXBodyText18(text = title) },
     background = background,
     actionButton = actionButton
 )
@@ -32,7 +32,7 @@ fun topBarBackState(
     actionButton: @Composable (RowScope.() -> Unit)? = null,
     background: Color = TopBarBackground,
 ) = VROTopBarState(
-    title = { TTBodyText18(text = title) },
+    title = { AXBodyText18(text = title) },
     navigationButton = {
         IconButton(onClick = navigateBack) {
             TTIcon(

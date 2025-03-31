@@ -44,8 +44,8 @@ fun TTBullet(
     itemList: List<TTBulletItemData>,
 ) {
     Column(modifier = modifier) {
-        TTHeaderText18(text = title)
-        if (text.isNotEmpty()) TTBodyText(
+        AXHeaderText18(text = title)
+        if (text.isNotEmpty()) AXBodyText(
             modifier = Modifier.padding(top = 8.dp),
             text = text
         )
@@ -77,9 +77,9 @@ fun TTBulletItem(
         }
         Column {
             if (item.title.isNotEmpty()) {
-                TTHeaderText16(text = item.title)
+                AXHeaderText16(text = item.title)
             }
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier.padding(top = if (item.title.isNotEmpty()) 4.dp else 0.dp),
                 text = item.text
             )

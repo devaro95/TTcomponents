@@ -17,8 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ttcomponents.app.R
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText14
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText14
 import com.mock.titleMock
 import com.vro.compose.preview.VROLightMultiDevicePreview
 

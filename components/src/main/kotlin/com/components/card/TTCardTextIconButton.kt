@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.ttcomponents.app.R
-import com.components.text.TTTextIcon
+import com.components.text.AXTextIcon
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
 @VROLightMultiDevicePreview
@@ -52,7 +52,7 @@ fun TTCardIconTextButton(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TTTextIcon(
+            AXTextIcon(
                 iconRes = iconRes,
                 text = text
             )

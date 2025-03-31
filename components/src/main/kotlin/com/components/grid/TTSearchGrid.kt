@@ -16,8 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.components.grid.data.TTGridItemData
-import com.components.input.TTInput
-import com.components.text.TTHeaderTextCustom
+import com.components.input.AXInput
+import com.components.text.AXHeaderTextCustom
 import com.vro.compose.preview.VROLightMultiDevicePreview
 import com.vro.constants.EMPTY_STRING
 
@@ -40,12 +40,12 @@ fun TTSearchGrid(
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         if (title.isNotEmpty()) {
-            TTHeaderTextCustom(
+            AXHeaderTextCustom(
                 text = title,
                 fontSize = 20.sp
             )
         }
-        TTInput(
+        AXInput(
             value = filter,
             placeholder = inputPlaceholder,
             onChange = { filter = it })

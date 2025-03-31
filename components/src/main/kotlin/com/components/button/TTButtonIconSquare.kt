@@ -11,7 +11,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.components.icon.TTIcon
-import com.components.text.TTHeaderText14
+import com.components.text.AXHeaderText14
 import com.theming.TTTheme
 import com.theming.colors.TTButtonColors
 import com.ttcomponents.app.R
@@ -36,6 +36,8 @@ import com.vro.constants.EMPTY_STRING
  *
  * Example usage:
  * @sample TTButtonIconSquarePreview
+ * @deprecated This composable is deprecated. Use [AXButtonIconSquare] instead for better performance
+ * and more customization options.
  */
 @Composable
 fun TTButtonIconSquare(
@@ -62,7 +64,7 @@ fun TTButtonIconSquare(
             modifier = contentModifier.padding(horizontal = 4.dp)
         ) {
             if (text.isNotEmpty()) {
-                TTHeaderText14(
+                AXHeaderText14(
                     modifier = Modifier
                         .padding(start = 8.dp)
                         .padding(vertical = 8.dp),

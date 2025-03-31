@@ -23,8 +23,8 @@ import androidx.compose.ui.unit.dp
 import com.components.guide.guideBuilder.BuildSectionParams
 import com.components.section.TTSection
 import com.components.styles.White
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText14
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText14
 import com.domain.model.SectionModel
 import com.extensions.toBitmap
 import com.mock.imageMock
@@ -104,14 +104,14 @@ private fun TTCardCarouselTextImageItem(item: TTCardCarouselTextImageItem) {
                     .fillMaxWidth()
                     .height(140.dp)
             )
-            TTHeaderText14(
+            AXHeaderText14(
                 modifier = Modifier
                     .padding(top = 8.dp)
                     .padding(horizontal = 12.dp)
                     .fillMaxWidth(),
                 text = item.title,
             )
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 8.dp, bottom = 16.dp)
                     .padding(horizontal = 12.dp)

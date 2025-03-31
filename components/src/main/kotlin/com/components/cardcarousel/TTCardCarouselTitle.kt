@@ -31,8 +31,8 @@ import com.vro.compose.preview.VROLightMultiDevicePreview
  *
  * @param modifier Modifier to apply to the outer `Column` containing the carousel.
  *                 Use this to control layout properties, such as padding, size, and alignment.
- * @param title An optional title string to display above the carousel. Displayed using `TTHeaderText16`.
- * @param description An optional description string to display below the title. Displayed using `TTTitleText16`.
+ * @param title An optional title string to display above the carousel. Displayed using `AXHeaderText16`.
+ * @param description An optional description string to display below the title. Displayed using `AXTitleText16`.
  * @param items A list of `TTCardCarouselTitleItem` objects, each representing a card in the carousel.
  * @param onClick Lambda that is invoked when a card is clicked. It provides the `id` of the clicked card.
  *
@@ -51,13 +51,13 @@ fun TTCardCarouselTitle(
 ) {
     Column(modifier = modifier) {
         title?.let {
-            TTHeaderText16(
+            AXHeaderText16(
                 text = it,
                 modifier = Modifier.padding(start = 16.dp)
             )
         }
         description?.let {
-            TTTitleText16(
+            AXTitleText16(
                 text = it,
                 modifier = Modifier.padding(start = 16.dp)
             )
@@ -110,7 +110,7 @@ private fun TTCardCarouselTitleItem(
             contentDescription = null,
             contentScale = ContentScale.Crop
         )
-        TTHeaderTextVariant(
+        AXHeaderTextVariant(
             text = item.title.jumpOnSpace(),
             modifier = Modifier
                 .align(Alignment.BottomStart)

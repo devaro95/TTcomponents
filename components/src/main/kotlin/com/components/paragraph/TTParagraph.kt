@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText18
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText18
 import com.mock.textLongMock
 import com.mock.titleMock
 
@@ -15,8 +15,8 @@ import com.mock.titleMock
  * A composable that displays a paragraph with a header and body text.
  *
  * This composable is designed to display a block of text that includes a header (title)
- * and a body (paragraph). It uses the [TTHeaderText18] composable for the title and
- * the [TTBodyText] composable for the paragraph text.
+ * and a body (paragraph). It uses the [AXHeaderText18] composable for the title and
+ * the [AXBodyText] composable for the paragraph text.
  *
  * @param modifier Modifier to be applied to the paragraph.
  * @param title The text to display as the header of the paragraph.
@@ -32,8 +32,8 @@ fun TTParagraph(
     text: String,
 ) {
     Column(modifier = modifier) {
-        TTHeaderText18(text = title)
-        TTBodyText(
+        AXHeaderText18(text = title)
+        AXBodyText(
             modifier = Modifier.padding(top = 4.dp),
             text = text
         )

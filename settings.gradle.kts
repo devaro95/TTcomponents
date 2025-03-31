@@ -28,3 +28,4 @@ rootProject.name = "TTcomponents"
 include(":app")
 include(":components")
 include(":shared-domain")
+include(":astro-components")

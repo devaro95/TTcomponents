@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.components.picker.model.TTListItemData
-import com.components.text.TTHeaderText14
+import com.components.text.AXHeaderText14
 import com.theming.TTTheme
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -49,7 +49,7 @@ fun TTListPicker(
                     .fillMaxWidth()
                     .padding(vertical = 8.dp)
             ) {
-                TTHeaderText14(
+                AXHeaderText14(
                     modifier = Modifier.weight(1f),
                     text = it.value
                 )

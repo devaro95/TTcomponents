@@ -1,0 +1,47 @@
+package com.components.button
+
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.axcomponents.app.R
+import com.theming.AXTheme
+import com.theming.colors.AXButtonColors
+
+/**
+ * A composable button that displays a save icon within a square button.
+ *
+ * This composable provides a convenient way to create a button specifically designed for a "save" action.
+ * It utilizes the `TTButtonIconSquare` composable to render a square button containing a save icon.
+ *
+ * @param onClick The callback to be invoked when the button is clicked.
+ * @param modifier Modifier to be applied to the button.
+ *
+ * Example usage:
+ * @sample AXButtonSavePreview
+ */
+@Composable
+fun AXButtonSave(
+    modifier: Modifier = Modifier,
+    colors: AXButtonColors = AXTheme.colorScheme.buttonColors,
+    onClick: () -> Unit,
+) {
+    Column(modifier = Modifier.padding(start = 6.dp)) {
+        AXButtonIconSquare(
+            iconRes = R.drawable.ic_save_section,
+            onClick = onClick,
+            colors = colors
+        )
+    }
+}
+
+/**
+ * Example usage of the AXButtonSave composable.
+ */
+@Preview
+@Composable
+private fun AXButtonSavePreview() {
+    AXButtonSave(onClick = {})
+}

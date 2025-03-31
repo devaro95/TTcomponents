@@ -4,25 +4,29 @@ import com.example.tt_components.R
 
 enum class ComponentType(val value: String, val category: Category) {
     // Buttons
-    TTButton("Button", Category.Button),
-    TTButtonIconSquare("ButtonIconSquare", Category.Button),
-    TTButtonSave("ButtonSave", Category.Button),
-    TTButtonSecondary("ButtonSecondary", Category.Button),
-    TTFloatingButton("FloatingButton", Category.Button),
+    AXButton("Button", Category.Button),
+    AXButtonIconSquare("ButtonIconSquare", Category.Button),
+    AXButtonSave("ButtonSave", Category.Button),
+    AXButtonSecondary("ButtonSecondary", Category.Button),
+    AXFloatingButton("FloatingButton", Category.Button),
 
     // Inputs
-    TTInput("Input", Category.Input),
-    TTInputClickableDropdown("InputClickableDropdown", Category.Input),
-    TTInputCurrency("InputCurrency", Category.Input),
-    TTInputCurrencyPicker("InputCurrencyPicker", Category.Input),
-    TTInputDate("InputDate", Category.Input),
-    TTInputDropdown("InputDropdown", Category.Input),
-    TTInputMenuDropdown("InputMenuDropdown", Category.Input),
-    TTInputPassword("InputPassword", Category.Input),
+    AXInput("Input", Category.Input),
+    AXInputClickableDropdown("InputClickableDropdown", Category.Input),
+    AXInputCurrency("InputCurrency", Category.Input),
+    AXInputCurrencyPicker("InputCurrencyPicker", Category.Input),
+    AXInputDate("InputDate", Category.Input),
+    AXInputDropdown("InputDropdown", Category.Input),
+    AXInputMenuDropdown("InputMenuDropdown", Category.Input),
+    AXInputPassword("InputPassword", Category.Input),
+
+    // Carousel
+    AXIconCarousel("Icon Carousel", Category.Carousel),
+    AXIconCardCarousel("Icon Card Carousel", Category.Carousel),
 
     // Menus
-    TTMenu("Menu", Category.Menu),
-    TTMenuRounded("Menu Rounded", Category.Menu),
+    AXMenu("Menu", Category.Menu),
+    AXMenuRounded("Menu Rounded", Category.Menu),
 
     // Cards
     TTCardImage("Card Add Image", Category.Card),
@@ -49,14 +53,15 @@ enum class ComponentType(val value: String, val category: Category) {
     TTPager("Pager", Category.Pager),
     TTPagerIndicator("Pager Indicator", Category.Pager),
 
-    //Pager
-    TTStepperTextIndicator("Pager Indicator", Category.Indicator),
+    //Indicator
+    AXStepperTextIndicator("Stepper Text Indicator", Category.Indicator),
+    AXStepperIndicator("Stepper Indicator", Category.Indicator),
 
     //Box
     SocialBox("Social Box", Category.Box),
 
     //Counter
-    Counter("Counter", Category.Counter),
+    AXCounter("Counter", Category.Counter),
 
     // Sections
     TTBullet("Bullet", Category.Section),
@@ -79,5 +84,6 @@ enum class ComponentType(val value: String, val category: Category) {
         Box(title = "Sections", icon = R.drawable.ic_button),
         Counter(title = "Counter", icon = R.drawable.ic_button),
         Section(title = "Box", icon = R.drawable.ic_button),
+        Carousel(title = "Carousel", icon = R.drawable.ic_button),
     }
 }

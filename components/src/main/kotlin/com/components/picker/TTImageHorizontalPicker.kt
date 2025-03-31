@@ -23,8 +23,8 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText24
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText24
 import com.extensions.isUrl
 import com.extensions.toBitmap
 import com.mock.imageBase64Mock
@@ -113,14 +113,14 @@ fun TTImageHorizontalPicker(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         title?.let {
-            TTHeaderText24(
+            AXHeaderText24(
                 modifier = textModifier.fillMaxWidth(),
                 text = it,
                 textAlign = textAlign
             )
         }
         message?.let {
-            TTBodyText(
+            AXBodyText(
                 modifier = textModifier.fillMaxWidth(),
                 text = message,
                 textAlign = textAlign
@@ -221,7 +221,7 @@ fun TTImageHorizontalPicker(
         )
 
         footerText?.let {
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 32.dp)
                     .fillMaxWidth(),

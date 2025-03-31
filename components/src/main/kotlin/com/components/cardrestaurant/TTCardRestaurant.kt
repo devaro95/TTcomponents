@@ -15,12 +15,12 @@ import com.components.cardcarousel.TTCardCarouselImage
 import com.components.cardrestaurant.TTCardRestaurantType.BOTTOM_FULL
 import com.components.cardrestaurant.TTCardRestaurantType.TOP_FULL
 import com.components.cardrestaurant.TTCardRestaurantType.TOP_RIGHT
-import com.components.text.TTAddressText
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText16
-import com.components.text.TTHeaderText18
-import com.components.text.TTItalicText
-import com.components.text.TTTextBorderIcon
+import com.components.text.AXAddressText
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText16
+import com.components.text.AXHeaderText18
+import com.components.text.AXItalicText
+import com.components.text.AXTextBorderIcon
 import  com.domain.model.RestaurantSectionModel
 import com.extensions.toDashedText
 import com.extensions.toEurosText
@@ -39,7 +39,7 @@ fun TTCardRestaurant(
     type: TTCardRestaurantType,
 ) {
     Column(modifier = modifier) {
-        TTHeaderText18(
+        AXHeaderText18(
             text = item.name,
             modifier = Modifier.padding(bottom = if (type == BOTTOM_FULL) 0.dp else 16.dp)
         )
@@ -52,23 +52,23 @@ fun TTCardRestaurant(
             )
         }
         Row(modifier = Modifier.padding(top = 10.dp)) {
-            TTTextBorderIcon(
+            AXTextBorderIcon(
                 label = stringResource(R.string.create_section_restaurant_label_rate),
                 text = item.rate.value,
                 icon = R.drawable.ic_star
             )
-            TTTextBorderIcon(
+            AXTextBorderIcon(
                 modifier = Modifier.padding(start = 10.dp),
                 label = stringResource(R.string.create_section_restaurant_label_price),
                 text = item.price.value,
                 icon = R.drawable.ic_diamond
             )
         }
-        TTAddressText(
+        AXAddressText(
             text = item.address,
             modifier = Modifier.padding(top = 8.dp)
         )
-        TTBodyText(
+        AXBodyText(
             text = item.description,
             modifier = Modifier.padding(
                 top = 16.dp,
@@ -83,7 +83,7 @@ fun TTCardRestaurant(
             )
         }
         if (item.menu.isNotEmpty()) {
-            TTHeaderText16(
+            AXHeaderText16(
                 text = stringResource(id = R.string.card_restaurant_what_to_take),
                 modifier = Modifier.padding(top = 16.dp, bottom = 8.dp)
             )
@@ -93,13 +93,13 @@ fun TTCardRestaurant(
                         .padding(bottom = 6.dp)
                         .fillMaxWidth()
                 ) {
-                    TTItalicText(
+                    AXItalicText(
                         modifier = Modifier
                             .weight(1f)
                             .padding(end = 16.dp),
                         text = it.name.toDashedText()
                     )
-                    TTItalicText(
+                    AXItalicText(
                         text = it.price.toEurosText()
                     )
                 }

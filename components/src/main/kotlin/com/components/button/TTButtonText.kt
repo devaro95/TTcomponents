@@ -11,6 +11,9 @@ import androidx.compose.ui.unit.dp
 import com.theming.TTTheme
 import com.theming.colors.TTButtonColors
 
+/**
+ * @deprecated This composable is deprecated. Use [AXButton] instead.
+ */
 @Composable
 fun TTButtonText(
     modifier: Modifier = Modifier,

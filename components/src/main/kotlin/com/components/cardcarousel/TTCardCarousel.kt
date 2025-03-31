@@ -21,8 +21,8 @@ import com.components.cardcarousel.TTCardCarouselType.SMALL
 import com.components.guide.guideBuilder.BuildSectionParams
 import com.components.section.TTSection
 import com.components.styles.White
-import com.components.text.TTBodyText
-import com.components.text.TTHeaderText14
+import com.components.text.AXBodyText
+import com.components.text.AXHeaderText14
 import com.domain.model.SectionModel
 import com.vro.compose.preview.VROLightMultiDevicePreview
 
@@ -100,13 +100,13 @@ private fun TTCardCarouselItem(
                 .padding(horizontal = 12.dp)
                 .fillMaxWidth()
         ) {
-            TTHeaderText14(
+            AXHeaderText14(
                 modifier = Modifier
                     .padding(top = 8.dp)
                     .fillMaxWidth(),
                 text = item.title,
             )
-            TTBodyText(
+            AXBodyText(
                 modifier = Modifier
                     .padding(top = 8.dp, bottom = 16.dp)
                     .fillMaxWidth(),
