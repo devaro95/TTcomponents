@@ -13,7 +13,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.styles.White
 import com.theming.TTTheme
 import com.ttcomponents.app.R
@@ -47,7 +47,7 @@ fun TTThemeList(
                 fontSize = 14.sp,
                 fontWeight = FontWeight.Bold
             )
-            TTIcon(
+            AXIcon(
                 onClick = { expanded = !expanded },
                 iconRes = R.drawable.ic_back,
                 modifier = Modifier.rotate(if (expanded) 90f else -90f),

@@ -17,7 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.text.AXBodyText
 import com.components.text.AXHeaderText24
 import com.extensions.isUrl
@@ -125,7 +125,7 @@ fun TTImagePicker(
                                     contentScale = ContentScale.Crop
                                 )
                             } ?: run {
-                                TTIcon(
+                                AXIcon(
                                     iconRes = R.drawable.ic_plus,
                                     size = 24.dp,
                                     onClick = onClick

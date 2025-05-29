@@ -45,7 +45,7 @@ fun TTIconSquare(
                     text = text
                 )
             }
-            TTIcon(
+            AXIcon(
                 modifier = Modifier.padding(iconPadding),
                 iconRes = iconRes,
                 size = iconSize,

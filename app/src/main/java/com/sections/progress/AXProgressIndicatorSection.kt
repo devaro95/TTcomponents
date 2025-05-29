@@ -2,26 +2,26 @@ package com.sections.progress
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
-import com.components.progress.TTProgressBar
+import com.components.indicator.AXProgressIndicator
 import com.sections.Section
 
 @Composable
-fun TTProgressBarSection() {
+fun AXProgressBarSection() {
     Column {
-        Section(title = "TTCurrencyPicker empty") {
-            TTProgressBar(
+        Section(title = "AXProgressIndicator empty") {
+            AXProgressIndicator(
                 duration = 4000,
                 progress = 0f
             )
         }
-        Section(title = "TTImagePicker custom progress") {
-            TTProgressBar(
+        Section(title = "AXProgressIndicator custom progress") {
+            AXProgressIndicator(
                 duration = 1000,
                 progress = 0.5f
             )
         }
-        Section(title = "TTImagePicker full progress") {
-            TTProgressBar(
+        Section(title = "AXProgressIndicator full progress") {
+            AXProgressIndicator(
                 duration = 1000,
                 progress = 1f
             )

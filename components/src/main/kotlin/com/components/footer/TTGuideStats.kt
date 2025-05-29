@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.icon.TTIconLike
 import com.components.text.AXBodyText14
 import com.theming.TTTheme
@@ -35,7 +35,7 @@ fun TTGuideStats(
             text = totalLikes.toString(),
             color = tint
         )
-        TTIcon(
+        AXIcon(
             modifier = Modifier.padding(start = 8.dp),
             iconRes = if (userSaved) R.drawable.ic_save_fill
             else R.drawable.ic_save_empty,

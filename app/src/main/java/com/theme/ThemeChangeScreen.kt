@@ -5,7 +5,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.theme.ThemeChangeEvents.ColorChange
 import com.theme.ThemeChangeEvents.Confirm
 import com.theme.sections.*
@@ -22,7 +22,7 @@ class ThemeChangeScreen : VROScreen<ThemeChangeState, ThemeChangeEvents>() {
             navigateBack = ::navigateBack,
             actionButton = {
                 IconButton(onClick = { event(Confirm) }) {
-                    TTIcon(
+                    AXIcon(
                         iconRes = com.example.tt_components.R.drawable.ic_save,
                         modifier = Modifier.size(16.dp),
                         contentDescription = null,

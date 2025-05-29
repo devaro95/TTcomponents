@@ -46,9 +46,6 @@ enum class ComponentType(val value: String, val category: Category) {
     TTCurrencyPicker("Currency Picker", Category.Picker),
     TTDatePicker("Date Picker", Category.Picker),
 
-    //Progress Bar
-    TTProgressBar("Progress Bar", Category.Progress),
-
     //Pager
     TTPager("Pager", Category.Pager),
     TTPagerIndicator("Pager Indicator", Category.Pager),
@@ -56,6 +53,7 @@ enum class ComponentType(val value: String, val category: Category) {
     //Indicator
     AXStepperTextIndicator("Stepper Text Indicator", Category.Indicator),
     AXStepperIndicator("Stepper Indicator", Category.Indicator),
+    AXProgressBar("Progress Indicator", Category.Indicator),
 
     //Box
     SocialBox("Social Box", Category.Box),
@@ -78,7 +76,6 @@ enum class ComponentType(val value: String, val category: Category) {
         Menu(title = "Menus", icon = R.drawable.ic_menu),
         Card(title = "Cards", icon = R.drawable.ic_card),
         Picker(title = "Picker", icon = R.drawable.ic_picker),
-        Progress(title = "ProgressBar", icon = R.drawable.ic_progress),
         Pager(title = "Pager", icon = R.drawable.ic_pager),
         Indicator(title = "Indicator", icon = R.drawable.ic_indicator),
         Box(title = "Sections", icon = R.drawable.ic_button),

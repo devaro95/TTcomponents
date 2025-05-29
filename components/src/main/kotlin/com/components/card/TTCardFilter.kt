@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.theming.TTTheme
 import com.ttcomponents.app.R
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -39,7 +39,7 @@ fun TTCardFilter(
             ),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        TTIcon(
+        AXIcon(
             iconRes = R.drawable.ic_filter,
             size = 14.dp,
             tint = TTTheme.colorScheme.secondaryColor,

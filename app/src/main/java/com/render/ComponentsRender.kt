@@ -2,7 +2,51 @@ package com.render
 
 import androidx.compose.runtime.Composable
 import com.model.ComponentType
-import com.model.ComponentType.*
+import com.model.ComponentType.AXButton
+import com.model.ComponentType.AXButtonIconSquare
+import com.model.ComponentType.AXButtonSave
+import com.model.ComponentType.AXButtonSecondary
+import com.model.ComponentType.AXCounter
+import com.model.ComponentType.AXFloatingButton
+import com.model.ComponentType.AXIconCardCarousel
+import com.model.ComponentType.AXIconCarousel
+import com.model.ComponentType.AXInput
+import com.model.ComponentType.AXInputClickableDropdown
+import com.model.ComponentType.AXInputCurrency
+import com.model.ComponentType.AXInputCurrencyPicker
+import com.model.ComponentType.AXInputDate
+import com.model.ComponentType.AXInputDropdown
+import com.model.ComponentType.AXInputMenuDropdown
+import com.model.ComponentType.AXInputPassword
+import com.model.ComponentType.AXMenu
+import com.model.ComponentType.AXMenuRounded
+import com.model.ComponentType.AXProgressBar
+import com.model.ComponentType.AXStepperIndicator
+import com.model.ComponentType.AXStepperTextIndicator
+import com.model.ComponentType.Category
+import com.model.ComponentType.SocialBox
+import com.model.ComponentType.TTBullet
+import com.model.ComponentType.TTCardCarouselText
+import com.model.ComponentType.TTCardCarouselTitle
+import com.model.ComponentType.TTCardCarouselTitleElevated
+import com.model.ComponentType.TTCardImage
+import com.model.ComponentType.TTCardImageCarousel
+import com.model.ComponentType.TTCardSelector
+import com.model.ComponentType.TTCardSelectorList
+import com.model.ComponentType.TTCardSocial
+import com.model.ComponentType.TTCardSocialTwo
+import com.model.ComponentType.TTCurrencyPicker
+import com.model.ComponentType.TTDatePicker
+import com.model.ComponentType.TTImageCardHeader
+import com.model.ComponentType.TTImageFull
+import com.model.ComponentType.TTImageHorizontalPicker
+import com.model.ComponentType.TTImagePicker
+import com.model.ComponentType.TTInfo
+import com.model.ComponentType.TTListPicker
+import com.model.ComponentType.TTPager
+import com.model.ComponentType.TTPagerIndicator
+import com.model.ComponentType.TTParagraph
+import com.model.ComponentType.TTUserImage
 import com.sections.box.TTSocialBoxSection
 import com.sections.button.*
 import com.sections.card.*
@@ -21,7 +65,7 @@ import com.sections.menu.AXMenuSection
 import com.sections.pager.TTPagerIndicatorSection
 import com.sections.pager.TTPagerSection
 import com.sections.picker.*
-import com.sections.progress.TTProgressBarSection
+import com.sections.progress.AXProgressBarSection
 
 @Composable
 fun RenderSections(type: ComponentType) {
@@ -32,7 +76,6 @@ fun RenderSections(type: ComponentType) {
         Category.Menu -> RenderMenu(type)
         Category.Card -> RenderCard(type)
         Category.Picker -> RenderPicker(type)
-        Category.Progress -> RenderProgressBar(type)
         Category.Pager -> RenderPager(type)
         Category.Indicator -> RenderIndicator(type)
         Category.Section -> RenderSection(type)
@@ -115,14 +158,6 @@ private fun RenderPicker(type: ComponentType) {
 }
 
 @Composable
-private fun RenderProgressBar(type: ComponentType) {
-    when (type) {
-        TTProgressBar -> TTProgressBarSection()
-        else -> error("Invalid Progress Bar type")
-    }
-}
-
-@Composable
 private fun RenderPager(type: ComponentType) {
     when (type) {
         TTPager -> TTPagerSection()
@@ -136,6 +171,7 @@ private fun RenderIndicator(type: ComponentType) {
     when (type) {
         AXStepperIndicator -> AXStepperIndicatorSection()
         AXStepperTextIndicator -> AXStepperTextIndicatorSection()
+        AXProgressBar -> AXProgressBarSection()
         else -> error("Invalid Indicator type")
     }
 }

@@ -11,7 +11,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.unit.dp
 import com.ttcomponents.app.R
 import com.components.divider.TTLineDivider
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.text.AXBodyText
 import com.components.text.AXHeaderText16
 import com.vro.compose.preview.VROLightMultiDevicePreview
@@ -42,7 +42,7 @@ fun TTSectionListItem(
             }
             if (clickable) {
                 Column(modifier = Modifier.padding(end = 16.dp)) {
-                    TTIcon(
+                    AXIcon(
                         iconRes = R.drawable.ic_back,
                         modifier = Modifier.rotate(180f)
                     )

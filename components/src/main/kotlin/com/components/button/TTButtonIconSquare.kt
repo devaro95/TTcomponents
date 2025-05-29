@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.text.AXHeaderText14
 import com.theming.TTTheme
 import com.theming.colors.TTButtonColors
@@ -72,7 +72,7 @@ fun TTButtonIconSquare(
                     color = colors.buttonText
                 )
             }
-            TTIcon(
+            AXIcon(
                 modifier = Modifier.padding(iconPadding),
                 iconRes = iconRes,
                 size = iconSize,

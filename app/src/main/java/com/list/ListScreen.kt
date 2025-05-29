@@ -14,7 +14,7 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.styles.White
 import com.list.ListEvents.Detail
 import com.theming.TTTheme
@@ -70,7 +70,7 @@ class ListScreen : VROScreen<ListState, ListEvents>() {
                                 color = TTTheme.colorScheme.primaryColor,
                                 fontWeight = FontWeight.Bold
                             )
-                            TTIcon(
+                            AXIcon(
                                 iconRes = R.drawable.ic_back,
                                 modifier = Modifier.rotate(ICON_ROTATION),
                                 tint = TTTheme.colorScheme.primaryColor

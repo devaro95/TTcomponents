@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.components.container.model.SocialStatsModel
 import com.components.container.model.HorizontalTextPosition
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.text.AXBodyText14
 import com.theming.TTSocialStatsColors
 import com.theming.TTTheme
@@ -45,7 +45,7 @@ fun TTSocialSave(
 ) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         if (textPosition == HorizontalTextPosition.Right) {
-            TTIcon(
+            AXIcon(
                 iconRes = if (data.userSaved) R.drawable.ic_save_fill
                 else R.drawable.ic_save_empty,
                 size = 18.dp,
@@ -67,7 +67,7 @@ fun TTSocialSave(
                     color = if (data.userSaved) colors.likeTextColor else colors.unlikeTextColor
                 )
             }
-            TTIcon(
+            AXIcon(
                 modifier = Modifier.padding(start = 4.dp),
                 iconRes = if (data.userSaved) R.drawable.ic_save_fill
                 else R.drawable.ic_save_empty,

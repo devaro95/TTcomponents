@@ -44,7 +44,7 @@ fun TTIconRounded(
                     text = text
                 )
             }
-            TTIcon(
+            AXIcon(
                 modifier = Modifier.padding(iconPadding),
                 iconRes = iconRes,
                 size = iconSize,

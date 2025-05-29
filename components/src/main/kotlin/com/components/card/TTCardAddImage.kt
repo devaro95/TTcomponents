@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.ttcomponents.app.R
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.styles.*
 import com.components.text.AXHeaderText14
 import com.domain.model.GuideModel.ImageModel
@@ -90,7 +90,7 @@ fun TTCardAddImage(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
                 ) {
-                    TTIcon(
+                    AXIcon(
                         iconRes = R.drawable.ic_add,
                         size = 24.dp,
                         tint = Placeholder,
@@ -113,7 +113,7 @@ fun TTCardAddImage(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    TTIcon(
+                    AXIcon(
                         iconRes = R.drawable.ic_edit,
                         size = 20.dp,
                         tint = White,

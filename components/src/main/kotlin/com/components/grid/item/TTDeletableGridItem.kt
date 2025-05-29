@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.components.grid.data.TTGridItemData
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.styles.*
 import com.components.text.AXHeaderText14
 import com.theming.TTTheme
@@ -49,7 +49,7 @@ fun TTDeletableGridItem(
                 .background(TTTheme.colorScheme.primaryColor)
                 .size(20.dp),
         ) {
-            TTIcon(
+            AXIcon(
                 modifier = Modifier.padding(6.dp),
                 iconRes = R.drawable.ic_cross,
                 tint = White,

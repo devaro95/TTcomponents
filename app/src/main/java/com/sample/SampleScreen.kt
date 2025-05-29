@@ -12,7 +12,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.styles.White
 import com.sample.SampleEvents.List
 import com.sample.SampleEvents.ThemeChange
@@ -28,7 +28,7 @@ class SampleScreen : VROScreen<SampleState, SampleEvents>() {
         topBarState(
             title = "Components Repository",
             actionButton = {
-                TTIcon(
+                AXIcon(
                     modifier = Modifier.padding(end = 16.dp),
                     iconRes = R.drawable.ic_edit,
                     size = 16.dp,
@@ -71,7 +71,7 @@ class SampleScreen : VROScreen<SampleState, SampleEvents>() {
                             fontWeight = FontWeight.Bold
                         )
                         Spacer(modifier = Modifier.height(16.dp))
-                        TTIcon(
+                        AXIcon(
                             iconRes = item.icon,
                             size = 20.dp,
                             onClick = { event(List(item)) }

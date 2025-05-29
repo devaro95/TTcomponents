@@ -12,7 +12,7 @@ private fun TTIconBackPreview() {
 
 @Composable
 fun TTIconBack(onClick: () -> Unit) {
-    TTIcon(
+    AXIcon(
         iconRes = R.drawable.ic_back,
         onClick = onClick
     )

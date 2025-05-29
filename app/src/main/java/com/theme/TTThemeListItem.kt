@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import androidx.core.graphics.toColorInt
 import com.components.button.TTButton
-import com.components.icon.TTIcon
+import com.components.icon.AXIcon
 import com.components.input.AXInput
 import com.components.input.AXInputClickableDropdownNew
 import com.github.skydoves.colorpicker.compose.*
@@ -58,7 +58,7 @@ fun TTThemeListItem(
                 properties = DialogProperties(usePlatformDefaultWidth = false),
                 content = {
                     Column(modifier = Modifier.fillMaxSize()) {
-                        TTIcon(
+                        AXIcon(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .padding(top = 24.dp),
