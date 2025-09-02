@@ -2,12 +2,12 @@ package com.detail
 
 import com.detail.DetailNavigator.DetailDestinations
 import com.detail.DetailStarter.Initialize
-import com.vro.compose.VROComposableViewModel
 import com.vro.navstarter.VRONavStarter
-import org.koin.android.annotation.KoinViewModel
+import com.vro.viewmodel.VROViewModel
+import org.koin.core.annotation.Single
 
-@KoinViewModel
-class DetailViewModel : VROComposableViewModel<DetailState, DetailDestinations, DetailEvents>() {
+@Single
+class DetailViewModel : VROViewModel<DetailState, DetailDestinations, DetailEvents>() {
 
     override val initialState = DetailState.Companion.INITIAL
 

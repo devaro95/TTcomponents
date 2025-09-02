@@ -41,7 +41,6 @@ dependencies {
     implementation(project(":components"))
 
     implementation(libs.vro.compose)
-    implementation(libs.vro.common)
     implementation(libs.material3)
     implementation(libs.material3.icons)
     implementation(libs.material3.icons.extended)
