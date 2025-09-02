@@ -4,11 +4,11 @@ import com.ComponentType
 import com.sample.SampleEvents.Detail
 import com.sample.SampleNavigator.SampleDestinations
 import com.sample.SampleNavigator.SampleDestinations.DetailDestination
-import com.vro.compose.VROComposableViewModel
-import org.koin.android.annotation.KoinViewModel
+import com.vro.viewmodel.VROViewModel
+import org.koin.core.annotation.Single
 
-@KoinViewModel
-class SampleViewModel : VROComposableViewModel<SampleState, SampleDestinations, SampleEvents>() {
+@Single
+class SampleViewModel : VROViewModel<SampleState, SampleDestinations, SampleEvents>() {
 
     override val initialState = SampleState.INITIAL
 

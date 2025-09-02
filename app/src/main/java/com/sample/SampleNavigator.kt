@@ -6,7 +6,7 @@ import com.detail.DetailScreen
 import com.detail.DetailStarter
 import com.sample.SampleNavigator.SampleDestinations
 import com.vro.compose.VROComposableActivity
-import com.vro.compose.VROComposableNavigator
+import com.vro.compose.navigator.VROComposableNavigator
 import com.vro.navigation.VRODestination
 
 class SampleNavigator(

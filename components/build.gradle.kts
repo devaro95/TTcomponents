@@ -59,7 +59,6 @@ dependencies {
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.vro.compose)
-    implementation(libs.vro.common)
     implementation(libs.core.ktx)
     implementation(libs.ui)
     implementation(libs.ui.graphics)

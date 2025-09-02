@@ -3,7 +3,7 @@ package com.detail
 import androidx.navigation.NavController
 import com.detail.DetailNavigator.DetailDestinations
 import com.vro.compose.VROComposableActivity
-import com.vro.compose.VROComposableNavigator
+import com.vro.compose.navigator.VROComposableNavigator
 import com.vro.navigation.VRODestination
 
 class DetailNavigator(

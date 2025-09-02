@@ -10,6 +10,7 @@ import com.detail.DetailViewModel
 import com.vro.compose.VROComposableActivity
 import com.vro.compose.extensions.vroComposableScreen
 import com.vro.compose.states.*
+import com.vro.core_android.injection.injectViewModel
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : VROComposableActivity() {
@@ -26,7 +27,7 @@ class MainActivity : VROComposableActivity() {
         snackbarState: MutableState<VROSnackBarState>,
     ) {
         vroComposableScreen(
-            viewModel = { koinViewModel<SampleViewModel>() },
+            viewModel = { injectViewModel<SampleViewModel>() },
             navigator = SampleNavigator(this@MainActivity, navController),
             content = SampleScreen(),
             topBarState = topBarState,
@@ -34,7 +35,7 @@ class MainActivity : VROComposableActivity() {
             snackbarState = snackbarState
         )
         vroComposableScreen(
-            viewModel = { koinViewModel<DetailViewModel>() },
+            viewModel = { injectViewModel<DetailViewModel>() },
             navigator = DetailNavigator(this@MainActivity, navController),
             content = DetailScreen(),
             topBarState = topBarState,
