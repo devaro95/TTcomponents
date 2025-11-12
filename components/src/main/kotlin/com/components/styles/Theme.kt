@@ -1,8 +1,8 @@
 package com.components.styles
 
-import com.vro.compose.VROComposableTheme
+import com.vro.compose.theme.VROComposableMaterialTheme
 
-val TTOneTheme = VROComposableTheme(
+val TTOneTheme = VROComposableMaterialTheme(
     lightColors = TTLightColors,
     darkColors = TTDarkColors,
     typography = TTTypography
